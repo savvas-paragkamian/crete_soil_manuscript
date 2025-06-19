@@ -27,16 +27,16 @@ urlcolor=olive
 \title{Harnessing Heterogeneous Data for Soil Health Assessment in Island Landscapes}
 % authors
 \author{
-Savvas Paragkamian\textsuperscript{1,2}\textsuperscript{\dag}\thanks{These authors contributed equally as first authors.}\thanks{Corresponding author: \texttt{s.paragkamian@hcmr.gr}},
-Johanna B. Holm\textsuperscript{3}\textsuperscript{\dag},
-Haris Zafeiropoulos\textsuperscript{4} \and
+Savvas Paragkamian\textsuperscript{1,2,\dag},
+Johanna B. Holm\textsuperscript{3\dag},
+Haris Zafeiropoulos\textsuperscript{4}, \and
 Christina Pavloudi\textsuperscript{5},
-Christos A. Christakis\textsuperscript{1} \and
+Christos A. Christakis\textsuperscript{1}, \and
 Ioannis Antoniou\textsuperscript{8},
-Panagiotis F. Sarris\textsuperscript{1,8} \and
+Panagiotis F. Sarris\textsuperscript{1,8}, \and
 Lynn Schriml\textsuperscript{3},
-Giorgos Kotoulas\textsuperscript{2}\textsuperscript{\ddag},
-Evangelos Pafilis\textsuperscript{2}\textsuperscript{\ddag}\thanks{These authors share last authorship.}\thanks{Corresponding author: \texttt{pafilis@hcmr.gr}}
+Giorgos Kotoulas\textsuperscript{2, \ddag, *},
+Evangelos Pafilis\textsuperscript{2, \ddag}
 }
 \begin{document}
 
@@ -52,7 +52,11 @@ Evangelos Pafilis\textsuperscript{2}\textsuperscript{\ddag}\thanks{These authors
 \textsuperscript{7} Department of Environmental Science and Technology, University of Maryland, Baltimore, USA \\
 \textsuperscript{8} Institute of Molecular Biology and Biotechnology, Foundation for Research and Technology-Hellas, 714 09 Heraklion, Crete, Greece
 \end{center}
+\vspace{1em}
 
+\noindent\textsuperscript{\dag} These authors contributed equally as first authors. \\
+\noindent\textsuperscript{\ddag} These authors share last authorship. \\
+\noindent\textsuperscript{*} Corresponding author: \texttt{kotoulas@hcmr.gr}
 
 \begin{abstract}
 
@@ -306,23 +310,18 @@ hypotheses and conservation priorities.
 \section{Materials and Methods}\label{integration_methods}
 
 This section presents the methods and data that are required to create
-a Cretan soil biodiversity data system, Figure \ref{fig:crete_soil_logo}. First, the literature regarding 
+a Cretan soil biodiversity data system, Figure \ref{fig:crete_idea_fig1}. First, the literature regarding 
 Crete is downloaded and analysed. Then sampling data from different 
 resources about sequences, biodiversity occurrences and soil samples 
 are retrieved. Lastly, the spatial data are incorporated as different 
 layers of the whole island.
 
 \begin{figure}[hbt!] 
-    \centering\includegraphics[width=0.7\columnwidth]{figures/crete_soil_integration_logo.png}
-    \caption{The schematic representation of the different types of data needed to create the Crete Soil System.}
-    \label{fig:crete_soil_logo}
+    \centering\includegraphics[width=\columnwidth]{figures/crete_idea_fig1.png}
+    \caption{A. Resources that contain data about Crete categorized in Literature, Maps and Samplings. B. Data derived from A are placed in the ecological data space with according to the Spatial scale, Temporal scale and Data structure.}
+    \label{fig:crete_idea_fig1}
 \end{figure}
 
-\begin{figure}[t] 
-    \centering\includegraphics[width=\columnwidth]{figures/crete_soil_microbiome}
-    \caption{Workflow of this study. Data integration of ISD data with multiple types of spatial data. Then, a threefold analysis of function annotations, network analysis and differential abundance. All these data and methods are used to focus on specific taxa, ecosystems and threats.}
-    \label{fig:workflow}
-\end{figure}
 \subsection{Literature}\label{crete-literature}
 
 Crete is an unambiguous name, this fact allows for simple keyword searches to discover 
@@ -434,7 +433,6 @@ Crinno-Emeric Group project\footnote{\url{https://geoportal.apdkritis.gov.gr/gis
 Handling and analysis of these data was done with the sf and terra R packages \parencite{Pebesma2023}.
 
 
-
 The complilation of Crete data cube has multiple spatial data layers of global,
 european, greek or cretan scale. 
 The Copernicus CORINE Land Cover has 3 layers resolution that classify the land
@@ -450,6 +448,24 @@ Crinno-Emeric Group project\footnote{\url{https://geoportal.apdkritis.gov.gr/gis
 Handling and analysis of these data was done with the sf and terra R packages \parencite{Pebesma2023}.
 %World Database on Protected Areas (WDPA) \parencite{Hanson2022}
 %Harmonized World Soil Database
+
+
+\subsection{Taxonomic inference}\label{tax_inference}
+Amplicon Sequence Variants were inferred using DADA2 \parencite{Callahan2016} for 
+filtering, denoising and chimeric reads removal. Normalisation of the reads
+across samples was implemented with the SRS R package \parencite{Beule2020}. Samples
+with less than 10000 reads were removed. ASVs were assigned to taxonomy using 
+DADA2 with Silva 138 taxonomy \parencite{quast_silva_2013}.
+PEMA was used for OTU inference based on VSEARCH \parencite{zafeiropoulos2020pema} with Silva 132.
+
+\subsection{Biodiversity analyses}\label{biodiversity}
+
+For the numerical ecology analyses,e.g diversity indices, NMDS, PERMANOVA, were calculated
+with the vegan R package \parencite{oksanen2024vegan}.
+For PCoA ordination we used the ape R packege \parencite{Paradis2004} and UMAP python library \parencite{mcinnes2018umap-software}.
+U-CIE R package was used for coloring 3 dimensional data \parencite{Koutrouli2022} to 
+visualise the $\beta$ diversity differences of samples on the map.
+Visualisation was implemented with ggplot2 \parencite{wickham_ggplot2_2016} and pheatmap \parencite{Kolde2019}.
 
 \subsection{Integrative Analysis and Annotations}\label{int_analysis}
 The network inferrence was facilitated with FlashWeave 0.19.2 \parencite{Tackmann2019}.
@@ -524,7 +540,6 @@ BHL employs the gnfinder tool on each OCRed page \parencite{mozzherin_gnamesgnfi
 The results showed that 23,391 pages (66.61\%) contained taxon names within 3,000 distinct items.
 From these, 890, contained more that 50 different taxon names.
 Additionally, 75,405 unique taxon names were detected across these pages, with a total of 214,215 occurrences. 
-The phyla with most taxa are summarised in Table \ref{table:crete_bhl_phyla}. 
 The items with taxon names were further analyzed based on the titles mentioned
 in the Biodiversity Heritage Library (BHL). It was found that 1,879 items had titles in various languages, with the following distribution:
 
@@ -550,32 +565,7 @@ English (ENG): 1,350
 
 The oldest document was published in 1554 and there are 1482 items published before 1960 containing thousands of taxa occurrences.
 
-\begin{longtable}{llll}
-    \caption{Number of taxa per Phylum as mentioned in documents that offer information about Crete. Note that some documents contain information from multiple places. \label{table:crete_bhl_phyla}} \\
-\textbf{Animalia} & \textbf{Taxa} & \textbf{Plantae} & \textbf{Taxa} \\
-\endfirsthead
-%
-\endhead
-%
-Annelida          & 291           & Anthocerotophyta & 11            \\
-Arthropoda        & 21916         & Bryophyta        & 650           \\
-Brachiopoda       & 189           & Charophyta       & 45            \\
-Bryozoa           & 138           & Chlorophyta      & 83            \\
-Chordata          & 7353          & Marchantiophyta  & 283           \\
-Cnidaria          & 444           & Rhodophyta       & 77            \\
-Ctenophora        & 16            & Tracheophyta     & 26971         \\
-Echinodermata     & 224           &                  &               \\
-Hemichordata      & 14            &                  &               \\
-Mollusca          & 4271          &                  &               \\
-Nematoda          & 83            &                  &               \\
-Nemertea          & 15            &                  &               \\
-Platyhelminthes   & 134           &                  &               \\
-Porifera          & 251           &                  &               \\
-Rotifera          & 51            &                  &              
-\end{longtable}
-
 \subsection{Biodiversity and samplings}
-
 
 Worldwide projects of microbiome studies have collected one or two topsoil
 samples from Crete \parencite{Vasar2022, Labouyrie2023, Bahram2018, Orgiazzi2018}.
@@ -589,7 +579,6 @@ investigaded by globan and european projects like the Forum of European Geologic
 Soil in Europe (GEMAS) \parencite{REIMANN2018302} and the Soil Profile Analytical
 Database for Europe (SPADE) \parencite{Hiederer2006}.
 
-
 GBIF as an biodiversity aggregator contains a most open data occurrences of species. 
 Regarding Crete, it contains 116,643 occurrences of 7065 unique species,
 10189 unique taxa (Figure \ref{fig:crete-samplings}). The data
@@ -601,12 +590,6 @@ There is a single occurrence of 1684, the oldest in Crete on the GBIF platform. 
 1960 there are 1021 unique taxa with 2051 occurrences submitted by 62 publishers (Figure \ref{fig:crete_taxa_gbif}).
 Edaphobase has in total, 26 resources with 17 different sampling points covering 120 distinct taxa.
 A part of it is included in GBIF, yet it provides some additional functionalities. 
-
-\begin{figure}[hbt!] 
-    \centering\includegraphics[width=0.7\columnwidth]{figures/crete_gbif_taxa_accumulation_classification.png}
-    \caption{Taxa identifications in Crete across the years. Data from GBIF filtered to exclude citizen science platforms.}
-    \label{fig:crete_taxa_gbif}
-\end{figure}
 
 IUCN redlist resource download contains three types of download.
 The polygon download contains the spatial polygons of distributions 
@@ -656,7 +639,7 @@ and plant metagenomes contains 69 samples in 2 studies.
 Then follows air metagenome with 61 samples during 3 studies.
 
 \begin{figure}[!htb] 
-    \centering\includegraphics[width=\columnwidth]{figures/crete_map_crete_samples.png}
+    \centering\includegraphics[width=\columnwidth]{figures/fig_isd_maps.png}
     \caption[Samplings in Crete]{Samplings in Crete. A. GBIF occurrences in Crete.
     B. Edaphobase samplings in Crete. C. ENA metagenomic samples in Crete (without ISD). D. WoSIS soil samples in Crete.}
     \label{fig:crete-samplings}
@@ -669,20 +652,10 @@ EU-FOREGS, EU-GEMAS and EU-SPADE.
 \subsection{Maps}
 
 Crete expands in 8,347 km\textsuperscript{2}. It is a mosaic, as the ten
-terrestrial environmental layers indicate in Figure \ref{fig:crete_data_cube_map}.
+terrestrial environmental layers indicate in Supplementary Figure 2.
 In terms of aridity, the largest area falls under the Semi-Arid class with 6244.44 km\textsuperscript{2},
 followed by Dry sub-humid with 1323.28 km\textsuperscript{2}, and Humid with 537.20 km\textsuperscript{2}, Table \ref{table:crete_data_cube_area}.
 
-\begin{figure}[hbt!] 
-    \centering\includegraphics[width=0.93\columnwidth]{figures/crete_data_cube_maps.png}
-    \caption[Crete data cube]{The ten layers of the terrestrial environments of Crete.
-    A. The digital elevation map. B. The Corine Land Cover EEA, Level 2.
-    C. The geology of Crete. D. The Harmonised World Soil dataset, version 2.
-    E. The Historic Land Dynamics Assessment dataset. F. The different protection areas of the island.
-    G. The mean surface temperature of WorldClim2. H. The mean precipitation of  WorldClim2.
-    I. The aridity index of soil, from the Global Aridity Index v3. J. The desertification risk assessment}
-    \label{fig:crete_data_cube_map}
-\end{figure}
 
 Crete has undergone significant land-use changes in the past 40 years. In total, 250.23 km\textsuperscript{2}
 of land transitioning to urban, while 56.57 of urban fabric has moved to various other land types.
@@ -734,177 +707,126 @@ Furthermore, the critical areas, which are classified based on their potential
 threat level, include low (C1) with 769.70 km\textsuperscript{2}, medium (C2)
 with 623.50 km\textsuperscript{2}, and high (C3) with 232.20 km\textsuperscript{2}.
 Area coverage of land-use management, conservation efforts, geology and
-desertification risks in Crete, are presented in Table \ref{table:crete_data_cube_area}.
-
-\begin{longtable}{ll}
-    \caption{Area cover, in km\textsuperscript{2}, of the different categories per spatial data layer of Crete. \label{table:crete_data_cube_area}} \\
-\textbf{hilda+ transition 1978-2018}               & \textbf{area}    \\
-\endfirsthead
-%
-\endhead
-%
-urban (stable)                                     & 250.23           \\
-urban to cropland                                  & 5.06             \\
-urban to pasture/rangeland                         & 4.03             \\
-urban to unmanaged grass/shrubland                 & 1.01             \\
-cropland to urban                                  & 56.57            \\
-cropland (stable)                                  & 1,193.61         \\
-cropland to pasture/rangeland                      & 648.72           \\
-cropland to forest                                 & 163.42           \\
-cropland to unmanaged grass/shrubland              & 5.05             \\
-pasture/rangeland to urban                         & 64.47            \\
-pasture/rangeland to cropland                      & 145.34           \\
-pasture/rangeland (stable)                         & 4,694.29         \\
-pasture/rangeland to forest                        & 205.83           \\
-pasture/rangeland to unmanaged grass/shrubland     & 127.28           \\
-pasture/rangeland to sparse/no vegetation          & 1.01             \\
-forest to cropland                                 & 1.01             \\
-forest to pasture/rangeland                        & 23.22            \\
-forest (stable)                                    & 162.33           \\
-unmanaged grass/shrubland to urban                 & 10.08            \\
-unmanaged grass/shrubland to cropland              & 41.40            \\
-unmanaged grass/shrubland to pasture/rangeland     & 271.59           \\
-unmanaged grass/shrubland to forest                & 20.20            \\
-unmanaged grass/shrubland (stable)                 & 10.09            \\
-sparse/no vegetation to cropland                   & 9.11             \\
-sparse/no vegetation to pasture/rangeland          & 84.87            \\
-sparse/no vegetation to forest                     & 1.01             \\
-sparse/no vegetation (stable)                      & 6.05             \\
-water                                              & 164.57           \\
-\textbf{CLC 2}                                     &                  \\
-Arable land                                        & 88.29            \\
-Artificial, non-agricultural vegetated areas       & 20.68            \\
-Forests                                            & 299.93           \\
-Heterogeneous agricultural areas                   & 1102.96          \\
-Industrial, commercial and transport units         & 39.77            \\
-Inland waters                                      & 6.74             \\
-Mine, dump and construction sites                  & 10.05            \\
-Open spaces with little or no vegetation           & 410.66           \\
-Pastures                                           & 59.25            \\
-Permanent crops                                    & 2367.70          \\
-Scrub and/or herbaceous vegetation associations    & 3797.83          \\
-Urban fabric                                       & 110.63           \\
-                                                   &                  \\
-\textbf{Protected areas}                           & \textbf{area}    \\
-Aesthetic Forest                                   & 0.17             \\
-Sites of Community Importance (Habitats Directive) & 0.34             \\
-Game breeding station                              & 1.02             \\
-Controlled hunting area                            & 11.59            \\
-Core zone in National (Woodland) Park              & 47.56            \\
-UNESCO-MAB Biosphere Reserve                       & 88.65            \\
-Protected Forest                                   & 417.74           \\
-Wildlife Refuge                                    & 610.70           \\
-Special Protection Area (Birds Directive)          & 1261.78          \\
-Special Areas of Conservation (Habitats Directive) & 2371.42          \\
-total protected (no overlap)                       & 2900.59          \\
-total protected                                    & 4810.96          \\
-\textbf{Aridity index class}                       & \textbf{area}    \\
-Semi-Arid                                          & 6244.44          \\
-Dry sub-humid                                      & 1323.28          \\
-Humid                                              & 537.20           \\
-                                                   &                  \\
-\textbf{Soil (HWSD2)}                              & \textbf{area}    \\
-Calcaric Fluvisols                                 & 598.40           \\
-Calcaric Regosols                                  & 2250.80          \\
-Chromic Luvisols                                   & 767.04           \\
-Eutric Cambisols                                   & 97.92            \\
-Lithic Leptosols                                   & 4777.00          \\
-NA                                                 & 4.08             \\
-                                                   &                  \\
-\textbf{elevation}                                 & \textbf{area}    \\
-(0,200{]}                                          & 2227.85          \\
-(200,400{]}                                        & 2192.21          \\
-(400,600{]}                                        & 1584.84          \\
-(600,800{]}                                        & 815.99           \\
-(800,1000{]}                                       & 484.21           \\
-(1000,1200{]}                                      & 355.34           \\
-(1200,1400{]}                                      & 249.44           \\
-(1400,1600{]}                                      & 150.83           \\
-(1600,1800{]}                                      & 91.55            \\
-(1800,2000{]}                                      & 75.50            \\
-(2000,2200{]}                                      & 39.69            \\
-(2200,2400{]}                                      & 12.23            \\
-(2400,2600{]}                                      & 0.21             \\
-                                                   &                  \\
-\textbf{geology}                                   & \textbf{area}    \\
--                                                  & 0.57             \\
-J-E Plattenkalk                                    & 1346.89          \\
-K-E Limestone of Pindos                            & 247.97           \\
-K.k Limestone of Tripolis                          & 1252.97          \\
-K.m Carbonaceous Allochthonous                     & 12.95            \\
-Mk Neogenic                                        & 811.96           \\
-Mm.I Neogenic                                      & 1614.25          \\
-Ph-T Phylites - Chalazites                         & 1012.08          \\
-Q.al Quaternary alluvium                           & 910.75           \\
-T.br  Limestone of Tripolis                        & 299.58           \\
-f Schale                                           & 117.83           \\
-fo Schale of Pindos                                & 317.59           \\
-ft Flysch of Tripolis                              & 275.55           \\
-o Ophilite Complex Allochthonous                   & 93.94            \\
-                                                   &                  \\
-\textbf{Desertification risk}                      & \textbf{area}    \\
-N non-affected                                     & 159.10           \\
-F2 fragile (medium)                                & 1900.60          \\
-F1 fragile (low)                                   & 1483.50          \\
-P potential                                        & 1556.60          \\
-C2 critical areas (medium)                         & 623.50           \\
-Other areas                                        & 283.80           \\
-F3 fragile (high)                                  & 1118.00          \\
-C1 critical areas (low)                            & 769.70           \\
-C3 critical areas (high)                           & 232.20           \\
-\textbf{Crete total}                               & \textbf{8345}
-
-\end{longtable}
+desertification risks in Crete, are presented in Supplementary Table 1.
 
 \subsection{Soil microbiome}
+
+
+\begin{table}[h!]
+\centering
+\caption{Summary of sequencing and quality filtering.}
+\begin{tabular}{@{}ll@{}}
+\textbf{Metric} & \textbf{Value}     \\
+Samples         & 140                \\
+Reads           & $60.6 \times 10^6$ \\
+Ns              & $76.000$           \\
+Filtered        & $50.1 \times 10^6$ \\
+denoisedF       & $45.9 \times 10^6$ \\
+denoisedR       & $48.5 \times 10^6$ \\
+merged          & $35.0 \times 10^6$ \\
+nonchim         & $33.3 \times 10^6$ \\
+\end{tabular}
+\label{tab:metrics}
+\end{table}
+
+Reads shorter than 445 bp or longer than 515 bp were fewer than
+15,000, see Figure \ref{fig:isd_srs-curve_samples}.
+Reads with unknown bases, Ns, were removed.
+From the 140 samples retrieved from ENA, two samples were 
+neglected because they had fewer than 10000 reads.
+Thus, 138 samples in total were included in the subsequent analysis.
+The reads of the remaining samples were normalised with SRS package at 10000 reads \parencite{Beule2020}
+
+\subsection{Inference and taxonomy}\label{inference_taxonomy}
+
+In summary, DADA2 resulted in 216,360 ASVs (2,704 unique
+taxa; 1123 ASVs at species level and 1059 at genus level) and
+PEMA (VSEARCH) in 13,285 OTUs; 2319 at family level and 1920 at genus level, Table \ref{table:asv_taxonomy}.
+There is a two orders of magnitude difference in the output of different methods. 
+About 98\% of ASVs occur in 2 samples or less as shown in Figure \ref{fig:isd_fig2_taxonomy}A.
+Hence, finding the prevalent ASVs is no trivial in soils of Crete.
+
+\begin{table}[]
+    \caption{Taxonomic depth of ASVs and the unique number of taxa of each level.}%
+\begin{tabular}{@{}lllll@{}}
+    \textbf{classification depth} & \textbf{Total ASV}    & \textbf{Total (ASV) taxa} & \textbf{Total OTUs} & \textbf{Total (OTU) taxa}\\
+Kingdom              & 1974         & 2                & 284        & 2               \\
+Phylum               & 4034         & 33               & 121        & 15              \\
+Order                & 38517        & 193              & 1224       & 135             \\
+Class                & 24157        & 83               & 978        & 62              \\
+Family               & 71355        & 287              & 2319       & 218             \\
+Genus                & 90137        & 1166             & 1920       & 582             \\
+Species              & 9120         & 1338             & 44         & 43              \\
+Total                & $\sim$239000 & 3102             & 6890       & 1057            
+\end{tabular}
+\label{table:asv_taxonomy}
+\end{table}
+
+There are 25 specialist taxa (present in samples < 10 and mean relative
+abundance > 0.003) and 146 generalist taxa (samples > 120), Figure \ref{fig:isd_fig2_taxonomy}.
+The representative Phyla, i.e the Phyla with higher than 5\% presence in all samples, are:
+Actinobacteriota, Proteobacteria, Chloroflexi, Acidobacteriota,
+Bacterodota and Planctomycetota, Figure \ref{fig:isd_top_phyla_samples}.
+Actinobacteriota and Proteobacteria in particular are present in all samples with 
+more than 50\% joined relative abundance, 36\% and 19.5\% respectively.
+Acidobacteriota aren't amongst the top phyla in 11 samples, 9 of them are beach
+ecosystems.
+
+Additional notable mentions of phyla are the Desulfobacterota which have specialist
+role in the ERR3697703 sample from Richtis gorge. Gemmatimonadota appear mostly
+in low carbon, dry samples and related with grazing, Figure \ref{fig:isd_top_phyla_samples}.
+The genus Deinococcus,
+from the Deinococcota phylum, appears in 3 samples from sandy beaches with high relative abundance.
+Apart from bacteria, there are two phyla of archaea in the ISD data, Thermoplasmatota and Euryarchaeota.
+These occur in samples from Kolokytha islet, Agiofaraggo gorge and Schinaria beach, all in the 
+beach environment. 
 
 \begin{sidewaystable}
     \caption{Summary of the different spatial layers in Crete in terms of total area, number of samples and microbial diversity.\label{table:data_cube_summary}}
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}llllllll@{\extracolsep{\fill}}}
 \tabcolsep=0pt%
-class                                           & area & category             & samples & taxa richness & asv richness & mean shannon & sd shannon \\
-Arable land                                     & 88   & CLC LABEL2           & 4       & 1518           & 6178          & 4.73          & 0.17        \\
-Artificial, non-agricultural vegetated areas    & 21   & CLC LABEL2           & NA      & NA             & NA            & NA            & NA          \\
-Forests                                         & 300  & CLC LABEL2           & 4       & 1803           & 8663          & 4.91          & 0.18        \\
-Heterogeneous agricultural areas                & 1103 & CLC LABEL2           & 31      & 13701          & 59581         & 4.83          & 0.24        \\
-Industrial, commercial and transport units      & 40   & CLC LABEL2           & 4       & 1760           & 6517          & 4.79          & 0.32        \\
-Inland waters                                   & 7    & CLC LABEL2           & NA      & NA             & NA            & NA            & NA          \\
-Mine, dump and construction sites               & 10   & CLC LABEL2           & NA      & NA             & NA            & NA            & NA          \\
-Open spaces with little or no vegetation        & 411  & CLC LABEL2           & 7       & 3132           & 14568         & 4.85          & 0.21        \\
-Pastures                                        & 59   & CLC LABEL2           & 4       & 1609           & 7535          & 4.85          & 0.14        \\
-Permanent crops                                 & 2368 & CLC LABEL2           & 22      & 9999           & 43833         & 4.88          & 0.18        \\
-Scrub and/or herbaceous vegetation associations & 3798 & CLC LABEL2           & 58      & 24394          & 110127        & 4.76          & 0.29        \\
-Urban fabric                                    & 111  & CLC LABEL2           & 4       & 1765           & 9828          & 4.78          & 0.19        \\
--                                               & 1    & Geology              & NA      & NA             & NA            & NA            & NA          \\
-J-E                                             & 1347 & Geology              & 22      & 8995           & 41730         & 4.75          & 0.25        \\
-K-E                                             & 248  & Geology              & NA      & NA             & NA            & NA            & NA          \\
-K.k                                             & 1253 & Geology              & 27      & 11277          & 51737         & 4.72          & 0.25        \\
-K.m                                             & 13   & Geology              & NA      & NA             & NA            & NA            & NA          \\
-Mk                                              & 812  & Geology              & 13      & 5618           & 24633         & 4.79          & 0.2         \\
-Mm.I                                            & 1614 & Geology              & 12      & 5259           & 22854         & 4.86          & 0.15        \\
-Ph-T                                            & 1012 & Geology              & 14      & 6720           & 29742         & 4.92          & 0.19        \\
-Q.al                                            & 911  & Geology              & 34      & 15580          & 64851         & 4.91          & 0.27        \\
-T.br                                            & 300  & Geology              & 2       & 625            & 2839          & 4.4           & 0.24        \\
-f                                               & 118  & Geology              & 2       & 720            & 4753          & 4.5           & 0.01        \\
-fo                                              & 318  & Geology              & 2       & 825            & 4606          & 4.65          & 0.04        \\
-ft                                              & 276  & Geology              & 10      & 4062           & 19085         & 4.79          & 0.17        \\
-o                                               & 94   & Geology              & NA      & NA             & NA            & NA            & NA          \\
-N                                               & 163  & Desertification Risk & NA      & NA             & NA            & NA            & NA          \\
-F2                                              & 1945 & Desertification Risk & 53      & 23404          & 103956        & 4.82          & 0.26        \\
-F1                                              & 1518 & Desertification Risk & 22      & 8817           & 41020         & 4.7           & 0.23        \\
-P                                               & 1593 & Desertification Risk & 36      & 16256          & 73256         & 4.86          & 0.19        \\
-C2                                              & 638  & Desertification Risk & 6       & 2113           & 9105          & 4.59          & 0.22        \\
-Other areas                                     & 290  & Desertification Risk & NA      & NA             & NA            & NA            & NA          \\
-F3                                              & 1144 & Desertification Risk & 14      & 5900           & 25362         & 4.82          & 0.28        \\
-C1                                              & 788  & Desertification Risk & 7       & 3191           & 14131         & 4.93          & 0.25        \\
-C3                                              & 238  & Desertification Risk & NA      & NA             & NA            & NA            & NA          \\
-Semi-Arid                                       & 6336 & Aridity class        & 98      & 43064          & 184930        & 4.83          & 0.25        \\
-Dry sub-humid                                   & 1343 & Aridity class        & 32      & 13649          & 65134         & 4.79          & 0.21        \\
-Humid                                           & 545  & Aridity class        & 8       & 2968           & 16766         & 4.55          & 0.19       
+class                                           & area & category             & samples & taxa richness  & mean shannon  \\
+Arable land                                     & 88   & CLC LABEL2           & 4       & 1518           & 4.73          \\
+Artificial, non-agricultural vegetated areas    & 21   & CLC LABEL2           & NA      & NA             & NA            \\
+Forests                                         & 300  & CLC LABEL2           & 4       & 1803           & 4.91          \\
+Heterogeneous agricultural areas                & 1103 & CLC LABEL2           & 31      & 13701          & 4.83          \\
+Industrial, commercial and transport units      & 40   & CLC LABEL2           & 4       & 1760           & 4.79          \\
+Inland waters                                   & 7    & CLC LABEL2           & NA      & NA             & NA            \\
+Mine, dump and construction sites               & 10   & CLC LABEL2           & NA      & NA             & NA            \\
+Open spaces with little or no vegetation        & 411  & CLC LABEL2           & 7       & 3132           & 4.85          \\
+Pastures                                        & 59   & CLC LABEL2           & 4       & 1609           & 4.85          \\
+Permanent crops                                 & 2368 & CLC LABEL2           & 22      & 9999           & 4.88          \\
+Scrub and/or herbaceous vegetation associations & 3798 & CLC LABEL2           & 58      & 24394          & 4.76          \\
+Urban fabric                                    & 111  & CLC LABEL2           & 4       & 1765           & 4.78          \\
+-                                               & 1    & Geology              & NA      & NA             & NA            \\
+J-E                                             & 1347 & Geology              & 22      & 8995           & 4.75          \\
+K-E                                             & 248  & Geology              & NA      & NA             & NA            \\
+K.k                                             & 1253 & Geology              & 27      & 11277          & 4.72          \\
+K.m                                             & 13   & Geology              & NA      & NA             & NA            \\
+Mk                                              & 812  & Geology              & 13      & 5618           & 4.79          \\
+Mm.I                                            & 1614 & Geology              & 12      & 5259           & 4.86          \\
+Ph-T                                            & 1012 & Geology              & 14      & 6720           & 4.92          \\
+Q.al                                            & 911  & Geology              & 34      & 15580          & 4.91          \\
+T.br                                            & 300  & Geology              & 2       & 625            & 4.4           \\
+f                                               & 118  & Geology              & 2       & 720            & 4.5           \\
+fo                                              & 318  & Geology              & 2       & 825            & 4.65          \\
+ft                                              & 276  & Geology              & 10      & 4062           & 4.79          \\
+o                                               & 94   & Geology              & NA      & NA             & NA            \\
+N                                               & 163  & Desertification Risk & NA      & NA             & NA            \\
+F2                                              & 1945 & Desertification Risk & 53      & 23404          & 4.82          \\
+F1                                              & 1518 & Desertification Risk & 22      & 8817           & 4.7           \\
+P                                               & 1593 & Desertification Risk & 36      & 16256          & 4.86          \\
+C2                                              & 638  & Desertification Risk & 6       & 2113           & 4.59          \\
+Other areas                                     & 290  & Desertification Risk & NA      & NA             & NA            \\
+F3                                              & 1144 & Desertification Risk & 14      & 5900           & 4.82          \\
+C1                                              & 788  & Desertification Risk & 7       & 3191           & 4.93          \\
+C3                                              & 238  & Desertification Risk & NA      & NA             & NA            \\
+Semi-Arid                                       & 6336 & Aridity class        & 98      & 43064          & 4.83          \\
+Dry sub-humid                                   & 1343 & Aridity class        & 32      & 13649          & 4.79          \\
+Humid                                           & 545  & Aridity class        & 8       & 2968           & 4.55          
 \end{tabular*}
 \end{sidewaystable}
 
-\section{Discussion}\label{crete_idea_discussion}
 
 The wide range of languages and year of historical publications illustrates the
 global impact and interdisciplinary nature Cretan historical biodiversity literature.
@@ -945,8 +867,8 @@ The only thorough microbiome study of a soil ecosystem in Crete, to our knowledg
 is in the north west part of the island, the Koiliaris Critical Zone Observatory \parencite{tsiknia2014environmental}.
 
 \begin{figure}[hbt!] 
-    \centering\includegraphics[width=\columnwidth]{figures/crete_map_crete_lter.png}
-    \caption[LTERs in Crete]{Long term monitoring stations in Crete}
+    \centering\includegraphics[width=\columnwidth]{figures/fig_isd_microbiome.png}
+    \caption[Island Sampling Day]{Soil microbiome diversity of Crete based on ISD data.}
     \label{fig:crete-lter}
 \end{figure}
 
@@ -956,8 +878,8 @@ investigated by global and European projects like the Forum of European Geologic
 Soil in Europe (GEMAS) \parencite{reimann2018gemas} and the Soil Profile Analytical
 Database for Europe (SPADE) \parencite{Hiederer2006}. These data with other data
 not publicly available have led to the creation of the \href{https://esdac.jrc.ec.europa.eu/content/soil-map-greece-0}{soil map} of Crete 
-and Greece in general. These maps are not as complete as the geological maps (Figure \ref{fig:crete_data_cube_map} C), 
-and that is the reason of the coarse mapping of the Harmonized World Soil Database map of Crete (Figure \ref{fig:crete_data_cube_map} D).
+and Greece in general. These maps are not as complete as the geological maps (Supplementary Figure 2 C), 
+and that is the reason of the coarse mapping of the Harmonized World Soil Database map of Crete (Supplementary Figure 2 D).
 Soil type results highlight the diversity of soil types on Crete, with a
 dominance of Lithic Leptosols and Calcaric Regosols, which may be linked to the
 region's geomorphological features (karst, limestone).
