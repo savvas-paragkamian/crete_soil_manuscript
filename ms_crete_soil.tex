@@ -27,7 +27,7 @@ urlcolor=olive
 \title{Harnessing Heterogeneous Data for Soil Health Assessment in Island Landscapes}
 % authors
 \author{
-Savvas Paragkamian\textsuperscript{1,2,\dag},
+Savvas Paragkamian\textsuperscript{1,2,\dag, *},
 Johanna B. Holm\textsuperscript{3\dag},
 Haris Zafeiropoulos\textsuperscript{4}, \and
 Christina Pavloudi\textsuperscript{5},
@@ -36,7 +36,7 @@ Ioannis Antoniou\textsuperscript{8},
 Panagiotis F. Sarris\textsuperscript{1,8}, \and
 Lynn Schriml\textsuperscript{3},
 Giorgos Kotoulas\textsuperscript{2, \ddag, *},
-Evangelos Pafilis\textsuperscript{2, \ddag}
+Evangelos Pafilis\textsuperscript{2, \ddag, *}
 }
 \begin{document}
 
@@ -56,7 +56,7 @@ Evangelos Pafilis\textsuperscript{2, \ddag}
 
 \noindent\textsuperscript{\dag} These authors contributed equally as first authors. \\
 \noindent\textsuperscript{\ddag} These authors share last authorship. \\
-\noindent\textsuperscript{*} Corresponding author: \texttt{kotoulas@hcmr.gr}
+\noindent\textsuperscript{*} Corresponding authors: \texttt{s.paragkamian@hcmr.gr}, \texttt{kotoulas@hcmr.gr}, \texttt{pafilis@hcmr.gr}
 
 \begin{abstract}
 
@@ -217,7 +217,7 @@ We proceed to summarise each resource contents and
 identified gaps and opportunities for subsequent analyses.
 Our aim is to establish a FAIR data summary of Crete in order to enable integrative analyses.
 To further support our case we use the
-Island Sampling Day soil microbiome data \parencite{holm2025first},
+Island Sampling Day (ISD) soil microbiome data \parencite{holm2025first},
 as a large scale bacterial study, to gain insights about the differences of the
 microbiome communities across land use, aridity and functional categories in Crete island.
 
@@ -237,7 +237,7 @@ Then, resources with open data about Crete were identified and retrieved in each
 
 \subsection{Literature}\label{crete-literature}
 
-The name of Crete is unambiguous name which reduces the false positives when performing queries in databases.
+The name of Crete is unambiguous word which reduces the false positives when performing queries in databases.
 Searches were done using different mentions of Crete such as \textit{Crete, Kriti, Kreta, and Cretan} in PubMed MEDLINE, 
 Google Scholar, Dimensions and Biodiversity Heritage Library.
 First, the MEDLINE PubMed corpus was downloaded via the ftp protocol and the E-utilities API.
@@ -255,7 +255,7 @@ Google scholar was used through the \textit{serpapi} API using
 a python script. The same keywords were used as in the previous searches.
 
 Historical literature related to the biodiversity of Crete has been explored
-using the BHL data model and schema, conducting searches on titles, items, and subjects.
+using the Biodiversity Heritage Library (BHL) data model and schema, conducting searches on titles, items, and subjects.
 Items represent the digitised documents, while subjects are assigned to each title.
 The schema includes a page table with page-level information.
 An archive of all transcribed texts was downloaded and search was performed on each page 
@@ -263,7 +263,7 @@ and subject.
 
 \subsection{Samplings}\label{crete_samplings}
 
-The data of samplings are contain sequences (fastq files), biodiversity (tab separated files)
+The data of samplings contain sequences (fastq files), biodiversity occurrences (tab separated files)
 and soil (tab separated files), using ENA, GBIF and WoSIS respectively.
 The ENA API was used with a POST request containing the bounding box of Crete as a query \parencite{yuan2023the-european}. This 
 query returned a list with the sample identifiers. Using this list and a custom python script the API
@@ -295,7 +295,8 @@ Global Aridity Index Database \parencite{zomer2022version}.
 The geological formations of Crete were derived from the geoportal of the
 Decentralized Administration of Crete. These maps were created by the Crinno-Emeric Group
 project \url{https://geoportal.apdkritis.gov.gr/gis/apps/storymaps/stories/19690f65abbe4e8ab0141b2fe7261a8c}.
-Furthermore, the Harmonised World Soil Database v2 was integrated for soil mapping units and taxonomic soil classification \parencite{fao2023}.
+Furthermore, the Harmonised World Soil Database v2 was integrated for soil
+mapping units and taxonomic soil classification \parencite{fao2023}.
 
 \subsection{Health assessments of Island Sampling Day Crete}\label{isd_data}
 
@@ -310,22 +311,22 @@ filtering, denoising and chimeric reads removal. Normalisation of the reads at 1
 across samples was implemented with the SRS R package \parencite{Beule2020}. Samples
 with less than 10000 reads were removed. ASVs were assigned to taxonomy using 
 DADA2 with Silva 138 taxonomy \parencite{quast_silva_2013}.
-PEMA was used for OTU inference based on VSEARCH \parencite{zafeiropoulos2020pema} with Silva 132.
+PEMA was used for OTU inference based on VSEARCH \parencite{zafeiropoulos2020pema} with Silva 132 taxonomy.
 
-For the numerical ecology analyses, e.g diversity indices, NMDS, PERMANOVA, were calculated
+The numerical ecology analyses, e.g diversity indices, NMDS, PERMANOVA, were calculated
 with the vegan R package \parencite{oksanen2024vegan}.
-For PCoA ordination we used the ape R packege \parencite{Paradis2004} and UMAP python library \parencite{mcinnes2018umap-software}.
+For PCoA ordination the ape R packege \parencite{Paradis2004} and UMAP python library \parencite{mcinnes2018umap-software}.
 U-CIE R package was used for coloring 3 dimensional data \parencite{Koutrouli2022} to 
 visualise the $\beta$ diversity differences of samples on the map.
-Visualisation was implemented with ggplot2 \parencite{wickham_ggplot2_2016} and .
-
+Taxa functional annotation was implemented with the manually curated FAPROTAX database
+with the accompanied python script \parencite{Louca2016}.
 The network inference was facilitated with FlashWeave 0.19.2 \parencite{Tackmann2019}.
 To use FlashWeave we reduced 
 the abundance table of the ASVs to keep the ones at the genus or species level.
 The subsequent network analyses were carried out
 with the igraph R package \parencite{Csardi2006}. 
-For taxa function annotation we used the manually curated FAPROTAX database and python script \parencite{Louca2016}.
-Whereas for the differential abundance analysis with ANCOM-BC2 R package \parencite{Lin2023}.
+Whereas, the differential abundance analysis was facilitated with the ANCOM-BC2 R package \parencite{Lin2023} using the 
+different spatial layers from the maps section.
 
 \subsection{Tools and code}\label{Coding environment}
 The working environment had Python 3.11.4, R version 4.3.2 \parencite{rcoreteam}.
@@ -337,17 +338,30 @@ Visualisation was implemented with ggplot2 \parencite{wickham_ggplot2_2016} and 
 Taxon names resolve and taxonomic classification was facilitated by taxize R package \parencite{chamberlain_taxize_2013}.
 Finally, computations were performed on HPC infrastructure of HCMR \parencite{zafeiropoulos_0s_2021}.
 Scripts about data integration are available in
-\href{https://github.com/savvas-paragkamian/crete-data-integration}{Crete data integration repository}.
+\href{https://github.com/savvas-paragkamian/crete-idea.git}{Crete data integration repository}.
+Scripts about the soil health assessment are available in 
+\href{https://github.com/savvas-paragkamian/crete-soil-health.git}{Crete soil health assessment repository}.
 
 \section{Results and Discussion}\label{crete_idea_results_discussion}
 
-The collection of different data types for one place, Crete, allowed for a 
-schematic representation in three axis:
-data structure, temporal scale and spatial scale, represented in Figure \ref{fig:crete_idea_fig1}. 
+The collection of different data types for one island, Crete, required the investigation
+of a multitude of resources with distinct information, Figure \ref{fig:crete_idea_fig1}A.
+These data are open access
+yet their integration and interoperability requires manual effort and curation. 
+Bringing all these data together allowed for a schematic representation regarding their
+data structure, temporal scale and spatial scale, represented in Figure \ref{fig:crete_idea_fig1}B. 
+For example, species Atlases, e.g Atlas of the Hellenic flora \parencite{strid2024atlas}, 
+are monumental works, albeit lacking structured data standards and they are 
+limited in their temporal scale. Whereas, Remote Sensing data follow global 
+standards, cover the globe and also produce time series data.
+Biodiversity Observation Networks (BON stations), e.g. ARMS \parencite{obst2020arms,santi2023emobon}, 
+also provide long term monitoring samples, in a regional scale while aiming at 
+high quality metadata and standards. 
+Living Labs \parencite{alhajj-ali2025a-review}, are also an novel approach focusing on 
+monitoring agriculture in the local scale, they haven't focused on 
+the adoption of standards and FAIR data.
 
-data cubes and the species occurrences cube \parencite{oldoni2020occurrence,groom2023b-cubed:}
-
-Living Labs \parencite{alhajj-ali2025a-review}
+%data cubes and the species occurrences cube \parencite{oldoni2020occurrence,groom2023b-cubed:}
 
 \subsection{Contemporary literature}
 
@@ -365,9 +379,6 @@ Out all the original set of abstracts, the 177, 11\%, originate from environment
 From these, Phylogeny was assigned to 24, Ecosystem to 21, Environmental Monitoring to 16
 and Conservation of Natural Resources in 8 abstracts.
 
-Crossref and Dimensions compare with Google Scholar, Microsoft Academic, Scopus and the Web of Science? 
-
-\parencite{harzing2019two-new-kids}
 Dimensions web application includes a broad range of disciplines publications.
 Regarding Crete there are 2,675 publications in History, Heritage, and Archaeology,
 making it the most prevalent discipline in this platform.
@@ -375,6 +386,7 @@ Earth Sciences follow with 2,256 publications, while Education and Historical
 Studies contribute 1,973 and 1,925 publications, respectively.
 The exploration in Biological Sciences also constitutes of
 Crete's academic interest, with 1,539 papers published about the island.
+Dimensions 
 
 Google scholar contains books and articles in the results. The search through
 the API resulted in 910 documents. 
@@ -388,9 +400,12 @@ The research is summarised as follows:
     \item Folklore studies also are present, with 13\% of publications.
 \end{itemize}
 
+It is apparent that different platforms contain different entries of literature, 
+a results that has been mentioned in other studies \parencite{harzing2019two-new-kids}. 
+
 \subsection{Historical literature}
 
-Regarding the Biodiversity Heritage Library and historical literature,
+Regarding the historical literature from BHL,
 62 million text pages from 292,000 unique documents were searched.
 It was observed that 25,812 documents contained fewer than five mentions of keywords related to Crete.
 Conversely, a smaller set of 3,696 documents exhibited five or more mentions of such keywords.
@@ -400,35 +415,16 @@ Of the filtered 35,130 pages, a content analysis was carried out to identify the
 BHL employs the gnfinder tool on each OCRed page \parencite{mozzherin_gnamesgnfinder_2022}.
 The results showed that 23,391 pages (66.61\%) contained taxon names within 3,000 distinct items.
 From these, 890, contained more that 50 different taxon names.
-Additionally, 75,405 unique taxon names were detected across these pages, with a total of 214,215 occurrences. 
+Additionally, 75,405 unique taxon names across taxonomic levels were detected in these pages. %, with a total of 214,215 occurrences. 
+
 The items with taxon names were further analyzed based on the titles mentioned
-in the Biodiversity Heritage Library (BHL). It was found that 1,879 items had titles in various languages, with the following distribution:
-
-Czech (CZE): 1
-Danish (DAN): 1
-Hungarian (HUN): 1
-Japanese (JPN): 1
-Portuguese (POR): 1
-Russian (RUS): 1
-Spanish (SPA): 1
-Norwegian (NOR): 2
-Swedish (SWE): 2
-Romanian (RUM): 3
-Undetermined (UND): 11
-Dutch (DUT): 12
-Latvian (LAT): 16
-Italian (ITA): 31
-Chinese (CHI): 34
-Multilingual (MUL): 37
-French (FRE): 105
-German (GER): 268
-English (ENG): 1,350
-
+in the BHL. It was found that 1,879 items had titles in 18 languages, with the
+majority being English (1,350), German (268), French (105) and others. 
 The oldest document was published in 1554 and there are 1482 items published before 1960 containing thousands of taxa occurrences.
 The wide range of languages and year of historical publications illustrates the
 global impact and interdisciplinary nature Cretan historical biodiversity literature.
 
-\subsection{Soil samplings}
+\subsection{Samplings}
 
 WoSIS contains soil samplings about physical and chemical characteristics. Regarding 
 Crete, it has 27 sampling locations. These data were collected during 3 EU projects, namely,
@@ -448,13 +444,13 @@ GBIF as an biodiversity aggregator contains the most open data occurrences of sp
 Regarding Crete, it contains 116,643 occurrences of 7065 unique species,
 10189 unique taxa (Figure \ref{fig:crete-samplings}) \parencite{gbif.org-user2023occurrence}.
 The data have been provided by 196 different publishers, e.g Institutions, Museum Collections, Platforms etc.
-The majority of occurrences, 98571, are originated from citizen science platforms, i.e 
+The majority of occurrences, 98,571, are originated from citizen science platforms, i.e 
 Cornell Lab of Ornithology, iNaturalist.org,Observation.org, Pl@ntNet and naturgucker.de.
-These occurrences were removed from because they are not submitted by experts.
+These occurrences were removed because they are not submitted by experts.
 There is a single occurrence of 1684, the oldest in Crete on the GBIF platform. Before 
 1960 there are 1021 unique taxa with 2051 occurrences submitted by 62 publishers (Figure \ref{fig:crete_taxa_gbif}).
-Edaphobase has in total, 26 resources with 17 different sampling points covering 120 distinct taxa.
-A part of it is included in GBIF, yet it provides some additional functionalities. 
+Another database is Edaphobase, which has in 26 resources with 17 different sampling points covering 120 distinct taxa.
+A part of it is included in GBIF, yet it provides some additional functionalities.
 
 IUCN redlist resource download contains three types of download.
 The polygon download contains the spatial polygons of distributions 
@@ -506,12 +502,16 @@ Then follows air metagenome with 61 samples during 3 studies.
 \begin{figure}[!htb] 
     \centering\includegraphics[width=\columnwidth]{figures/fig_isd_maps.png}
     \caption[Samplings in Crete]{Samplings in Crete. A. GBIF occurrences in Crete.
-    B. Edaphobase samplings in Crete. C. ENA metagenomic samples in Crete (without ISD). D. WoSIS soil samples in Crete.}
+    B. Timeline of GBIF occurrences across kingdoms. C. All genomic samples from ENA. 
+    D. ENA metagenomic samples in Crete (without ISD). 
+    E. WoSIS soil samples in Crete.
+    F. Edaphobase samplings in Crete.
+    G. Sampling monitoring stations in Crete include multiple LTER and BON stations} 
     \label{fig:crete-samplings}
 \end{figure}
 
 In addition to all these wealth of data, there are long term monitoring stations in 
-Crete, the most in Greece, Figure \ref{fig:crete-lter}.
+Crete, the most in Greece, Figure \ref{fig:crete-samplings} G.
 Artificial reefs monitoring (ARMS-MBON) with 2 stations \parencite{obst2020arms},
 European marine omics biodiversity observation network with one station \parencite{santi2023emobon},
 LTER-Greece network with 3 stations \parencite{Skoulikidis2021lter} and the POSEIDON system with 2 stations \parencite{ntoumas2022}. 
@@ -575,11 +575,11 @@ identified, with 598.40 (7.29\%), 767.04 (9.53\%), and 97.92 (1.21\%) occurrence
 respectively. These soils are typically associated with alluvial deposits, have
 a clay-enriched subsoil, and possess a high base saturation.
 
-The highest degree of protection of Crete habitats was observed in the Special Areas
-of Conservation (Habitats Directive) with 2371.42 km\textsuperscript{2}.
+The highest degree of protection of Crete habitats was observed in the Natura 2000 areas, Special Areas
+of Conservation (Habitats Directive) covering 2371.42 km\textsuperscript{2}.
 It is followed by the Wildlife Refuge (610.70 km\textsuperscript{2}),
 and Special Protection Area (Birds Directive) at 1261.78 km\textsuperscript{2}.
-Furthermore, the Core zone of the National (Woodland) Park, i.e Samaria Gorge, covers 47.56 km\textsuperscript{2}.
+Furthermore, the National Park, i.e Samaria Gorge, covers 47.56 km\textsuperscript{2}.
 In summary, the protection directives of Crete's natural areas are span several categories and cover 2900 km\textsuperscript{2}
 of Crete with some conservation sites overlapping.
 
@@ -592,13 +592,6 @@ threat level, include low (C1) with 769.70 km\textsuperscript{2}, medium (C2)
 with 623.50 km\textsuperscript{2}, and high (C3) with 232.20 km\textsuperscript{2}.
 Area coverage of land-use management, conservation efforts, geology and
 desertification risks in Crete, are presented in Supplementary Table 1.
-
-
-
-
-Natura2000 and geology \parencite{Bendali2024}
-
-
 
 \subsection{Soil microbiome}
 
@@ -619,7 +612,7 @@ In summary, DADA2 resulted in 216,360 ASVs (2,704 unique
 taxa; 1123 ASVs at species level and 1059 at genus level) and
 PEMA (VSEARCH) in 13,285 OTUs; 2319 at family level and 1920 at genus level, Table \ref{table:asv_taxonomy}.
 There is a two orders of magnitude difference in the output of different methods. 
-About 98\% of ASVs occur in 2 samples or less as shown in Figure \ref{fig:isd_fig2_taxonomy}A.
+About 98\% of ASVs occur in 2 samples or less as shown in Figure \ref{fig:isd_microbiome}A.
 Hence, finding the prevalent ASVs is no trivial in soils of Crete.
 
 \begin{table}[]
@@ -639,23 +632,22 @@ Total                & $\sim$239000 & 3102             & 6890       & 1057
 \end{table}
 
 There are 25 specialist taxa (present in samples < 10 and mean relative
-abundance > 0.003) and 146 generalist taxa (samples > 120), Figure \ref{fig:isd_fig2_taxonomy}.
+abundance > 0.003) and 146 generalist taxa (samples > 120), Figure \ref{fig:isd_microbiome}A.
 The representative Phyla, i.e the Phyla with higher than 5\% presence in all samples, are:
 Actinobacteriota, Proteobacteria, Chloroflexi, Acidobacteriota,
-Bacterodota and Planctomycetota, Figure \ref{fig:isd_top_phyla_samples}.
+Bacterodota and Planctomycetota, Figure \ref{fig:isd_microbiome}B.
 Actinobacteriota and Proteobacteria in particular are present in all samples with 
 more than 50\% joined relative abundance, 36\% and 19.5\% respectively.
 Acidobacteriota aren't amongst the top phyla in 11 samples, 9 of them are beach
 ecosystems.
 
-Additional notable mentions of phyla are the Desulfobacterota which have specialist
-role in the ERR3697703 sample from Richtis gorge. Gemmatimonadota appear mostly
-in low carbon, dry samples and related with grazing, Figure \ref{fig:isd_top_phyla_samples}.
-The genus Deinococcus,
-from the Deinococcota phylum, appears in 3 samples from sandy beaches with high relative abundance.
-Apart from bacteria, there are two phyla of archaea in the ISD data, Thermoplasmatota and Euryarchaeota.
-These occur in samples from Kolokytha islet, Agiofaraggo gorge and Schinaria beach, all in the 
-beach environment. 
+\begin{figure}[hbt!] 
+    \centering\includegraphics[width=\columnwidth]{figures/fig_isd_microbiome.png}
+    \caption[Island Sampling Day]{Soil microbiome diversity of Crete based on ISD data.}
+    \label{fig:isd_microbiome}
+\end{figure}
+
+
 
 \begin{sidewaystable}
     \caption{Summary of the different spatial layers in Crete in terms of total area, number of samples and microbial diversity.\label{table:data_cube_summary}}
@@ -704,20 +696,25 @@ Humid                                           & 545  & Aridity class        & 
 \end{sidewaystable}
 
 
-
-
-\begin{figure}[hbt!] 
-    \centering\includegraphics[width=\columnwidth]{figures/fig_isd_microbiome.png}
-    \caption[Island Sampling Day]{Soil microbiome diversity of Crete based on ISD data.}
-    \label{fig:crete-lter}
-\end{figure}
-
+Additional notable mentions of phyla are the Desulfobacterota which have specialist
+role in the ERR3697703 sample from Richtis gorge. Gemmatimonadota appear mostly
+in low carbon, dry samples and related with grazing.
+The genus Deinococcus,
+from the Deinococcota phylum, appears in 3 samples from sandy beaches with high relative abundance.
+Apart from bacteria, there are two phyla of archaea in the ISD data, Thermoplasmatota and Euryarchaeota.
+These occur in samples from Kolokytha islet, Agiofaraggo gorge and Schinaria beach, all in the 
+beach environment. 
 
 Differential abundance.
 
-Richtis gorge 
+Richtis gorge  \ref{fig:soil_health}.
 
 
+\begin{figure}[hbt!] 
+    \centering\includegraphics[width=\columnwidth]{figures/map_faprotax_human_pathogens_all.png}
+    \caption[Soil health]{Soil microbiome diversity of Crete based on ISD data.}
+    \label{fig:soil_health}
+\end{figure}
 
 
 As complex systems ecologists have stated bringing together information across
@@ -757,6 +754,7 @@ further comparisons and information homogeneity. Of course, there must be
 a lot of documents with important information not even imaged, thereby under 
 critical threats to become lost.
 
+Natura2000 and geology \parencite{Bendali2024}
 
 The presented knowledge base of Crete would be a suitable 
 case study to investigate these significant advancements to tighten the integration and form a 
@@ -985,13 +983,13 @@ No competing interest is declared.
 Conceptualization: GK, LS, EP, SP;
 Data curation: SP;
 Formal Analysis: SP, JH;
-Funding acquisition: SP, LS;
+Funding acquisition: SP, EP;
 Investigation: SP, JH, HS, CP;
 Methodology: SP, JH, HS, CP, CC;
 Project administration: GK, EP, LS;
-Resources: SP, GK;
+Resources: SP, GK, EP;
 Software: SP, JH, HZ;
-Supervision: GK, EP, PS, IA;
+Supervision: GK, EP, LS, PS, IA;
 Validation: JH, CP, CC, HZ, PS, LS, EP;
 Visualization: SP;
 Writing – original draft: SP;
@@ -999,6 +997,7 @@ Writing – review and editing: All authors.
 
 \section{Acknowledgments}
 The authors thank the anonymous reviewers for their valuable suggestions.
+SP thanks Neil Davies for fruitful discussions.
 
 \section{Funding}
 SP was supported by the 3rd H.F.R.I. Scholarships for PHD Candidates (no. 5726) for his work.
