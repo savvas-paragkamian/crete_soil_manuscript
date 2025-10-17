@@ -350,7 +350,7 @@ These data are open access
 yet their integration and interoperability requires manual effort and curation. 
 Bringing all these data together allowed for a schematic representation regarding their
 data structure, temporal scale and spatial scale, represented in Figure \ref{fig:crete_idea_fig1}B. 
-For example, species Atlases, e.g Atlas of the Hellenic flora \parencite{strid2024atlas}, 
+For example, species biodiversity occurrences (Atlases), e.g Atlas of the Hellenic flora \parencite{strid2024atlas}, 
 are monumental works, albeit lacking structured data standards and they are 
 limited in their temporal scale. Whereas, Remote Sensing data follow global 
 standards, cover the globe and also produce time series data.
@@ -363,66 +363,51 @@ the adoption of standards and FAIR data.
 
 %data cubes and the species occurrences cube \parencite{oldoni2020occurrence,groom2023b-cubed:}
 
-\subsection{Contemporary literature}
+\subsection{Literature}
 
-Regarding PubMed, the search process yielded 1556 unique abstracts about Crete.
-These were retrieved with only a handful of false positives.
-The majority of these abstracts pertain to biomedical topics.
-Using the Medical Subject Headings (MeSH) terms, 291 abstracts didn't have associated terms. 
-There were 3301 associated MeSH terms of the abstracts retrieved. 
-The most used term is "Human" appearing in 907 abstracts. The geographical 
-place Greece is also mentioned in 1100 abstracts. Genetic phenomena
-and Behavior mechanisms are listed in 500 abstracts, each. 
-While infections and organic chemicals are in 200 abstracts each. These terms 
-can appear with overlaps in abstracts.
-Out all the original set of abstracts, the 177, 11\%, originate from environmental sciences.
-From these, Phylogeny was assigned to 24, Ecosystem to 21, Environmental Monitoring to 16
-and Conservation of Natural Resources in 8 abstracts.
+Contemporary literature material is indexed in different platforms \parencite{harzing2019two-new-kids, walters2025comparing}
+Regarding Crete, PubMed custom search resulted in 1556 unique abstracts. 
+The Google Scholar API returned 910 documents and the Web service of Dimensions 
+displayed an impressive 43.000 publications. 
+Each platform has a different way to interact and most importantly contained 
+material from subject fields about Crete, as shown in Table \ref{table:crete_literature}.
 
-Dimensions web application includes a broad range of disciplines publications.
-Regarding Crete there are 2,675 publications in History, Heritage, and Archaeology,
-making it the most prevalent discipline in this platform.
-Earth Sciences follow with 2,256 publications, while Education and Historical
-Studies contribute 1,973 and 1,925 publications, respectively.
-The exploration in Biological Sciences also constitutes of
-Crete's academic interest, with 1,539 papers published about the island.
-Dimensions 
-
-Google scholar contains books and articles in the results. The search through
-the API resulted in 910 documents. 
-The research is summarised as follows:
-
-\begin{itemize}
-    \item Biodiversity with 25\%,
-    \item History with 22\%,
-    \item Archaeological 21\%,
-    \item Sociology is represented with 15\% publications,
-    \item Folklore studies also are present, with 13\% of publications.
-\end{itemize}
-
-It is apparent that different platforms contain different entries of literature, 
-a results that has been mentioned in other studies \parencite{harzing2019two-new-kids}. 
-
-\subsection{Historical literature}
+\begin{table}[htbp]
+\centering
+\caption{Document items about Crete and their top 6 categories across PubMed, Dimensions, and Google Scholar. The list is not exhaustive and some documents can be in multiple categories}
+\label{table:crete_literature}
+\begin{tabular}{|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|p{2.5cm}|}
+\hline
+\textbf{PubMed MeSH terms} & \textbf{PubMed abstracts} &
+\textbf{Dimensions Fields of Research} & \textbf{Dimensions} &
+\textbf{Google Scholar categories} & \textbf{Google Scholar} \\
+\hline
+Human & 907 & History, Heritage, Archaeology & 2834 & Biodiversity & 228 \\
+\hline
+Genetic phenomena & 500 & Earth sciences & 2284 & History & 200 \\
+\hline
+Behaviour Mechanisms & 500 & Education & 2822 & Archaeology & 191 \\
+\hline
+Infections & 200 & Historical studies & 1925 & Sociology & 136 \\
+\hline
+Organic chemicals & 200 & Biomedical and Clinical Sciences & 1463 & Folklore & 118 \\
+\hline
+Environmental sciences & 177 & Language, Communication and Culture & 1490 & Other & 37 \\
+\hline
+\end{tabular}
+\end{table}
 
 Regarding the historical literature from BHL,
-62 million text pages from 292,000 unique documents were searched.
-It was observed that 25,812 documents contained fewer than five mentions of keywords related to Crete.
-Conversely, a smaller set of 3,696 documents exhibited five or more mentions of such keywords.
-Items were filtered if they had less than five keyword hits related to Crete.
-Consequently, 35,130 pages were extracted representing the most commonly referenced Crete-related content in the document corpus.
-Of the filtered 35,130 pages, a content analysis was carried out to identify the presence of taxon names.
-BHL employs the gnfinder tool on each OCRed page \parencite{mozzherin_gnamesgnfinder_2022}.
-The results showed that 23,391 pages (66.61\%) contained taxon names within 3,000 distinct items.
-From these, 890, contained more that 50 different taxon names.
-Additionally, 75,405 unique taxon names across taxonomic levels were detected in these pages. %, with a total of 214,215 occurrences. 
-
-The items with taxon names were further analyzed based on the titles mentioned
-in the BHL. It was found that 1,879 items had titles in 18 languages, with the
+The largest biodiversity library is BHL with 62 million text pages from 292,000 unique documents. 
+All pages were searched to find the documents relevant of Crete which resulted in
+3,696 documents and 35,130 pages exhibited five or more occurrences of keywords related to Crete.
+Taxon named recognition based on the gnfinder tool on each OCRed page of BHL \parencite{mozzherin_gnamesgnfinder_2022},
+revealed that 890 documents, contained more that 50 different taxon names.
+Also, 1,879 items had titles in 18 languages, with the
 majority being English (1,350), German (268), French (105) and others. 
 The oldest document was published in 1554 and there are 1482 items published before 1960 containing thousands of taxa occurrences.
-The wide range of languages and year of historical publications illustrates the
-global impact and interdisciplinary nature Cretan historical biodiversity literature.
+Hence, the wide range of subjects in the literature, the different languages and years of historical publications illustrate the
+global impact and interdisciplinary of the Cretan literature.
 
 \subsection{Samplings}
 
@@ -696,6 +681,15 @@ Humid                                           & 545  & Aridity class        & 
 \end{sidewaystable}
 
 
+Crete's ecosystems are mostly semi-arid, whereas in the mountain ranges there 
+are areas classified as dry sub-humid and humid. Parent material and influences
+on soil functions and bacterial communities have been documented. Here, as shown in Table \ref{table:data_cube_summary},
+Quaternary-alluvial sediments (Q.al) and Phyllite-Quartzite series (Ph-T) hold the most diversity 
+and richness. Maybe because they are mostly found in riverbeds. Critical areas for 
+desertification (C2) hold the most diverse samples. Regarding the land cover the most
+rich sample is near the HCMR building, a high touristic area close to the beach. Yet, forests
+hold the highest Shannon diversity index.
+
 Additional notable mentions of phyla are the Desulfobacterota which have specialist
 role in the ERR3697703 sample from Richtis gorge. Gemmatimonadota appear mostly
 in low carbon, dry samples and related with grazing.
@@ -706,9 +700,23 @@ These occur in samples from Kolokytha islet, Agiofaraggo gorge and Schinaria bea
 beach environment. 
 
 Differential abundance.
+Another important finding is the statistically significant presence of \textit{Rhodococcus equi} (pathogen of foal or similar)
+in pastures. It is one of the most common causes of pneumonia in foals which
+become infected by inhaling dust or soil particles contaminated with the bacterium.
 
 Richtis gorge  \ref{fig:soil_health}.
 
+Richtis gorge (highly popular) has alarmingly high values for human pathogens, sulfur respiration and
+nitrate reduction. Even though this is derived from projections based on 
+taxonomic informations it shows some trends.
+This gorge has water all year long, rare in the gorges of Crete,
+and is the highest touristic attraction of eastern Crete. Its' name means "throw" and 
+there is a local rumor that people threw unwanted stuff throughout the centuries. 
+Origins of the name is also possible to be from the waterfall, which in Crete dialect
+is sometimes mentioned as "Rechtara", "Rechta" and "Richtis".
+Nevertheless, it is an important freshwater ecosystem which, to my knowledge is not included in 
+any protection regimen or legislation.
+The prevalence of potential human pathogens in Richtis gorge are an alarming signal which needs to be further investigated.
 
 \begin{figure}[hbt!] 
     \centering\includegraphics[width=\columnwidth]{figures/map_faprotax_human_pathogens_all.png}
@@ -716,13 +724,37 @@ Richtis gorge  \ref{fig:soil_health}.
     \label{fig:soil_health}
 \end{figure}
 
+Functional predictions from taxonomic information can lead to logical fallacy and oversimplification. 
+That is the case because the predictions are biased from reference genomes that are 
+used to assign functions to microbial taxa. In addition, amplicon studies like ISD
+cannot lead to certain results at the strain level and microbes are known for 
+their high degree of functional gene exchange in the environment \parencite{douglas2020picrust2}. 
+Early studies in soil metagenomics showed that deeper sequencing was needed to 
+accurately predict functions especially in ecosystems with low biodiversity like deserts \parencite{fierer2012crossbiome}.
+Reversely, functional groups when studied at the ecosystem level can be described 
+without gene specific information because there is a correlation of function with taxonomy \parencite{loucaDecouplingFunctionTaxonomy2016}.
+These projection can act as a preliminary assessment as shown in \textcite{Labouyrie2023}.
+Even though amplicon studies in soil should be interpreted with caution \parencite{alteio2021} they 
+can act as early warning signals towards public health concerns \parencite{banerjee2023Soil}.
 
-As complex systems ecologists have stated bringing together information across
-scales \parencite{brown2004METABOLIC} and functions leads to emergent properties that weren't possible to 
-predict before \parencite{smith2016Origin}. Using amplicon studies to function prediction has limitations and metagenomics of total DNA is more accurate \parencite{matchado2024on-the-limits}.
+Shotgun metagenomics and metatranscriptomics can unleash the functional potential of
+topsoil along with other advancements like long reads sequencing. Higher resolution
+samplings using grid system will enhance the resolution and also the resampling of
+ISD sites in different time points will provide additional insights to the complex soil 
+functions and expand the positive and negative associations in soils \parencite{Liu2024}.
+
 
 
 \section{Conclusion}
+
+
+As complex systems ecologists have stated bringing together information across
+scales \parencite{brown2004METABOLIC} and functions leads to emergent properties that weren't possible to 
+predict before \parencite{smith2016Origin}.
+Using amplicon studies to function prediction has limitations and metagenomics of total DNA is more accurate \parencite{matchado2024on-the-limits}.
+
+
+
 There are multiple tangible outcomes of integrating all these data gather together about a
 specific place and biome. First, it allows for sampling biases and gaps identification. Second, 
 it enables testing new hypotheses about unforeseen associations of variables. Third, 
@@ -815,6 +847,14 @@ RO crates
 The techniques to integrate are multiple in terms of statistics and modelling, ut,
 the advent of Large Language Models revolutionised the data interpretation and 
 user interaction. In ecology and conservation this is very promising \parencite{doi2024biodiversity}.
+
+Lastly, global hotspots \parencite{Guerra2022} and soil ecosystem conservation is needed as 
+a whole and expanding current protection of specific species \parencite{guerra2021tracking}.
+There are many blind spots in our knowledge about soil functioning and in the conservation
+priorities \parencite{farfan2024preliminary}. 
+This along with policy \parencite{KONINGER2022} across countries \parencite{Putten2023}
+without borders and the implementation of legislation in Greece \parencite{SCHISMENOS2022100035} is 
+imperative.
 
 
 Having all these data joined about Crete shows the culmination of intensive 
