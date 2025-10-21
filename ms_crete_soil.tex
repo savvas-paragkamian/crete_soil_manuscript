@@ -101,7 +101,6 @@ Evangelos Pafilis\textsuperscript{2, \ddag, *}
 
 \section{Introduction}\label{intro_idea}
 
-Soil is the cornerstone of terrestrial habitats, biodiversity and henceforth human activities.
 Disentangling the soil ecosystem functioning requires an holistic and 
 multidisciplinary approach \parencite{vogel2022}. 
 Soils are characterised by multiple properties; chemical (pH, nutrients etc.),
@@ -150,8 +149,8 @@ albeit in unstructured format.
 Databases like PubMed MEDLINE \parencite{sayers2024database}, Google Scholar, Dimensions and Biodiversity Heritage Library 
 are world class providers with different content.
 
-Ecosystem ecology studies the interactions of organisms with their surroundings
-as a whole which is based on heterogeneous data, as those presented above \parencite{van-dyne1966ecosystems}.
+The heterogeneous data those presented above are the basis of investigating the
+interactions of organisms with their surroundings through systems ecology \parencite{van-dyne1966ecosystems}.
 The representation of ecosystems with data was first mentioned as "digital earth" in the late 90s \parencite{Goodchild_2012}.
 This notion of the virtual earth was initially realised with satellite imaging,
 on-land sensors and the relevant software. Space, an area on Earth, is
@@ -188,24 +187,27 @@ The Island Digital Ecosystem Avatar (IDEA) is a digital representation of Mo'ore
 French Polynesia that has managed to integrate satellite data with sequences,
 bringing together all scales of biodiversity \parencite{Davies2016,davies2023island}.
 
-The island of Crete has been studied since the classical times for its'
+The island of Crete, Greece is a continental forarc island \parencite{ali2016},
+fifth largest island of the mediterranean (8350 km\textsuperscript{2}),
+and a mediterranean biodiversity hotspot \parencite{myers2000biodiversity}.
+It has been studied since the classical times for its'
 fauna \parencite{Sidiropoulos_Polymeni_Legakis_2017,Anastasiou2018Tenebrionid},
 flora \parencite{Krimbas_2005} and ecosystems \parencite{Grove1993}.
-Crete is a continental forarc island \parencite{ali2016}, fifth largest island of the mediterranean (8350 km\textsuperscript{2}),
-and a mediterranean biodiversity hotspot \parencite{myers2000biodiversity}.
 It is home to the only endemic mammal of Greece, the Cretan shrew (\textit{Crocidura zimmermanni}),
 more than 350 endemic arthropods \parencite{bolanakis2024} and 183 endemic plants \parencite{Kougioumoutzis2020}
-among them a tree \textit{Zelkova abelicea}. Multifaceted factors have shaped the
+among them a tree \textit{Zelkova abelicea}.
+
+Crete has been characterised as a miniature continent \parencite{Vogiatzakis2008_crete} because 
+of it's diversity of landscapes and seascapes.
+Multifaceted factors have shaped the
 biodiversity of the island, for example the sharp elevation gradient \parencite{trigas2013, FAZAN2017},
 the complex evolutionary history \parencite{POULAKAKIS2002} and the human - nature
 interactions over thousands of years \parencite{Vogiatzakis2008_med, Sfenthourakis2017}.
 The major threats of human activities are becoming apparent in the island's ecosystems,
-like desertification \parencite{KARAMESOUTI2018266}, intensive grazing \parencite{JouffroyBapicot2016},
+like desertification \parencite{KARAMESOUTI2018266}, soil erosion \parencite{panagos2014seasonal}, intensive grazing \parencite{JouffroyBapicot2016},
 climate change \parencite{Kougioumoutzis2020,Vogiatzakis2016} and habitat loss \parencite{ISPIKOUDIS1993259}.
 The soil microbiome has been studied in protected areas,
 i.e Natura2000 \parencite{bekris2019do-genetic}, and across the islands' ecosystems \parencite{holm2025first}.
-Lastly, Crete has been characterised as a miniature continent \parencite{Vogiatzakis2008_crete} because 
-of it's diversity of landscapes and seascapes.
 All these data are further establishing Crete as a great soil model island.
 
 In this study we ask: which are the resources of open data regarding soil ecosystems of Crete?
@@ -315,7 +317,7 @@ PEMA was used for OTU inference based on VSEARCH \parencite{zafeiropoulos2020pem
 
 The numerical ecology analyses, e.g diversity indices, NMDS, PERMANOVA, were calculated
 with the vegan R package \parencite{oksanen2024vegan}.
-For PCoA ordination the ape R packege \parencite{Paradis2004} and UMAP python library \parencite{mcinnes2018umap-software}.
+For PCoA ordination the ape R package \parencite{Paradis2004} and UMAP python library \parencite{mcinnes2018umap-software}.
 U-CIE R package was used for coloring 3 dimensional data \parencite{Koutrouli2022} to 
 visualise the $\beta$ diversity differences of samples on the map.
 Taxa functional annotation was implemented with the manually curated FAPROTAX database
@@ -354,8 +356,9 @@ For example, species biodiversity occurrences (Atlases), e.g Atlas of the Hellen
 are monumental works, albeit lacking structured data standards and they are 
 limited in their temporal scale. Whereas, Remote Sensing data follow global 
 standards, cover the globe and also produce time series data.
-Biodiversity Observation Networks (BON stations), e.g. ARMS \parencite{obst2020arms,santi2023emobon}, 
-also provide long term monitoring samples, in a regional scale while aiming at 
+Biodiversity Observation Networks (BON stations) are available only for marine systems
+currently, e.g. ARMS \parencite{obst2020arms,santi2023emobon}, 
+which provide long term monitoring samples, in a regional scale while aiming at 
 high quality metadata and standards. 
 Living Labs \parencite{alhajj-ali2025a-review}, are also an novel approach focusing on 
 monitoring agriculture in the local scale, they haven't focused on 
@@ -405,108 +408,11 @@ Taxon named recognition based on the gnfinder tool on each OCRed page of BHL \pa
 revealed that 890 documents, contained more that 50 different taxon names.
 Also, 1,879 items had titles in 18 languages, with the
 majority being English (1,350), German (268), French (105) and others. 
-The oldest document was published in 1554 and there are 1482 items published before 1960 containing thousands of taxa occurrences.
-Hence, the wide range of subjects in the literature, the different languages and years of historical publications illustrate the
+The oldest publication in BHL that mentions Crete was printed in 1554 and contains
+the biodiversity observations in Crete written by the famous French explorer Pierre Belon \parencite{belon1554les-obseruations}. 
+In addition, there are 1482 items published before 1960 containing thousands of taxa occurrences.
+Overall, the wide range of subjects in the literature, the different languages and years of historical publications illustrate the
 global impact and interdisciplinary of the Cretan literature.
-
-\subsection{Samplings}
-
-WoSIS contains soil samplings about physical and chemical characteristics. Regarding 
-Crete, it has 27 sampling locations. These data were collected during 3 EU projects, namely,
-the Forum of European Geological Surveys (FOREGS) \parencite{nerc19017},
-the Geochemical Mapping of Agricultural and Grazing Land
-Soil in Europe (GEMAS) \parencite{reimann2018gemas} and the Soil Profile Analytical
-Database for Europe (SPADE) \parencite{Hiederer2006}.
-These data with other data, not publicly available,
-have led to the creation of the \href{https://esdac.jrc.ec.europa.eu/content/soil-map-greece-0}{soil map} of Crete 
-and Greece in general. These maps are not as complete as the geological maps, 
-and that is the reason of the coarse mapping of the Harmonized World Soil Database map of Crete \ref{fig:crete-samplings}.
-Soil type results highlight the diversity of soil types on Crete, with a
-dominance of Lithic Leptosols and Calcaric Regosols, which may be linked to the
-region's geomorphological features (karst, limestone).
-
-GBIF as an biodiversity aggregator contains the most open data occurrences of species. 
-Regarding Crete, it contains 116,643 occurrences of 7065 unique species,
-10189 unique taxa (Figure \ref{fig:crete-samplings}) \parencite{gbif.org-user2023occurrence}.
-The data have been provided by 196 different publishers, e.g Institutions, Museum Collections, Platforms etc.
-The majority of occurrences, 98,571, are originated from citizen science platforms, i.e 
-Cornell Lab of Ornithology, iNaturalist.org,Observation.org, Pl@ntNet and naturgucker.de.
-These occurrences were removed because they are not submitted by experts.
-There is a single occurrence of 1684, the oldest in Crete on the GBIF platform. Before 
-1960 there are 1021 unique taxa with 2051 occurrences submitted by 62 publishers (Figure \ref{fig:crete_taxa_gbif}).
-Another database is Edaphobase, which has in 26 resources with 17 different sampling points covering 120 distinct taxa.
-A part of it is included in GBIF, yet it provides some additional functionalities.
-
-IUCN redlist resource download contains three types of download.
-The polygon download contains the spatial polygons of distributions 
-of species. Regarding Crete, 526 species have this information.
-IUCN has point occurrences download for 90 species. 
-The data download contains multiple comma-separated files that 
-complement the assessment of each taxon. In total, there are 602 species
-in terrestrial habitats, Table \ref{table:crete_iucn_phyla}. 
-The majority of Critically Endangered species are Tracheophyta, the Phylum
-with most assessments in general. There are many species not assessed in IUCN still.
-
-IUCN also holds threats assessments for 266 species in Crete. 
-The most critical threat is the increase in fire frequency and intensity (72 species) 
-for all Phyla. Then small-holder grazing, ranching or farming (66 species) is responsible
-for the second for important threat of Cretan species. 
-The following three categories are about tourism and recreation areas (63 species),
-housing and urban areas (48 species) and recreational activities(37 species).
-
-\begin{table}[]
-\centering
-\caption{Number of taxa per Phylum and IUCN redlist category about the terrestrial species of Crete.
-    CR - Critically Endangered, EN - Endangered, VU - Vulnerable, NT - Near Threatened,
-    LC - Least Concern, DD - Data Deficient.}
-\label{table:crete_iucn_phyla}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{lllllll}
-Category & Arthropoda & Bryophyta & Chordata & Mollusca & Tracheophyta & Total \\
-CR       & 2          & 0         & 1        & 3        & 8            & 14    \\
-EN       & 16         & 0         & 1        & 3        & 9            & 29    \\
-VU       & 15         & 1         & 4        & 27       & 11           & 58    \\
-NT       & 9          & 1         & 0        & 3        & 10           & 23    \\
-LC       & 60         & 2         & 20       & 97       & 247          & 426   \\
-DD       & 28         & 1         & 1        & 10       & 12           & 52    \\
-Total    & 130        & 5         & 27       & 143      & 297          & 602  
-\end{tabular}%
-}
-\end{table}
-
-Regarding the genomic and metagenomic samples from Crete, ENA hosts all the public 
-available data and metadata. There are 92 studies with 1205 samples.
-From these, the 530 samples are terrestrial metagenomic samples as shown in
-Figure \ref{fig:crete-samplings} C. 
-The most samples and studies are in the soil metagenome with 164 samples in 7 studies, excluding 144 samples of the
-ISD project \parencite{holm2025first}.
-Insect metagenome has 108 samples from 2 studies
-and plant metagenomes contains 69 samples in 2 studies.
-Then follows air metagenome with 61 samples during 3 studies.
-
-\begin{figure}[!htb] 
-    \centering\includegraphics[width=\columnwidth]{figures/fig_isd_maps.png}
-    \caption[Samplings in Crete]{Samplings in Crete. A. GBIF occurrences in Crete.
-    B. Timeline of GBIF occurrences across kingdoms. C. All genomic samples from ENA. 
-    D. ENA metagenomic samples in Crete (without ISD). 
-    E. WoSIS soil samples in Crete.
-    F. Edaphobase samplings in Crete.
-    G. Sampling monitoring stations in Crete include multiple LTER and BON stations} 
-    \label{fig:crete-samplings}
-\end{figure}
-
-In addition to all these wealth of data, there are long term monitoring stations in 
-Crete, the most in Greece, Figure \ref{fig:crete-samplings} G.
-Artificial reefs monitoring (ARMS-MBON) with 2 stations \parencite{obst2020arms},
-European marine omics biodiversity observation network with one station \parencite{santi2023emobon},
-LTER-Greece network with 3 stations \parencite{Skoulikidis2021lter} and the POSEIDON system with 2 stations \parencite{ntoumas2022}. 
-These are marine (5) and terrestrial (3) station collecting biodiversity data and abiotic data.
-Focusing in a confined area provides unique opportunities for data integration.
-For example in Samothrace \parencite{noll2024insights} a 15 year long study 
-showed practices to help sustain the socioecological system.
-Crete would be a great example of the digital representation of it's ecosystems
-and the human activities in order to tighten the relations with the society and 
-protect vulnerable areas.
 
 \subsection{Maps}
 
@@ -516,13 +422,14 @@ In terms of aridity, the largest area falls under the Semi-Arid class with 6244.
 followed by Dry sub-humid with 1323.28 km\textsuperscript{2}, and Humid with 537.20 km\textsuperscript{2}, Table \ref{table:crete_data_cube_area}.
 
 \begin{figure}[!htb] 
-    \centering\includegraphics[width=\columnwidth]{figures/crete_data_cube_maps.png}
-    \caption[Crete data cube]{The ten layers of the terrestrial environments of Crete.
+    \centering\includegraphics[width=\columnwidth]{figures/map_crete_data_cube.png}
+    \caption[Crete data cube]{The twelve layers of the terrestrial environments of Crete.
     A. The digital elevation map. B. The Corine Land Cover EEA, Level 2.
-    C. The geology of Crete. D. The Harmonised World Soil dataset, version 2.
-    E. The Historic Land Dynamics Assessment dataset. F. The different protection areas of the island.
-    G. The mean surface temperature of WorldClim2. H. The mean precipitation of  WorldClim2.
-    I. The aridity index of soil, from the Global Aridity Index v3. J. The desertification risk assessment}
+    C. The geology of Crete. D. Rivers and gorges of Crete.
+    E. The Harmonised World Soil dataset, version 2.
+    F. The Historic Land Dynamics Assessment dataset. G. The different protection areas of the island.
+    H. The mean surface temperature of WorldClim2. I. The mean precipitation of  WorldClim2.
+    J. The aridity index of soil, from the Global Aridity Index v3. K. The G2 model of soil erosion in Crete. J. The desertification risk assessment of Greece}
     \label{fig:crete-data-cube-maps}
 \end{figure}
 
@@ -559,6 +466,9 @@ Calcaric Fluvisols, Chromic Luvisols, and Eutric Cambisols were also
 identified, with 598.40 (7.29\%), 767.04 (9.53\%), and 97.92 (1.21\%) occurrences
 respectively. These soils are typically associated with alluvial deposits, have
 a clay-enriched subsoil, and possess a high base saturation.
+Soil type results highlight the diversity of soil types on Crete, with a
+dominance of Lithic Leptosols and Calcaric Regosols, which may be linked to the
+region's geomorphological features (karst, limestone).
 
 The highest degree of protection of Crete habitats was observed in the Natura 2000 areas, Special Areas
 of Conservation (Habitats Directive) covering 2371.42 km\textsuperscript{2}.
@@ -577,6 +487,89 @@ threat level, include low (C1) with 769.70 km\textsuperscript{2}, medium (C2)
 with 623.50 km\textsuperscript{2}, and high (C3) with 232.20 km\textsuperscript{2}.
 Area coverage of land-use management, conservation efforts, geology and
 desertification risks in Crete, are presented in Supplementary Table 1.
+
+Soil erosion \parencite{panagos2014seasonal}
+
+
+\subsection{Samplings}
+
+WoSIS open platform hosts data regarding a wide range of soil sampling with metadata
+about soil taxonomy, physical and chemical metadata. 
+contains soil samplings about physical and chemical characteristics.
+It contains 27 soil samples from Crete which were collected by
+the Forum of European Geological Surveys (FOREGS) \parencite{nerc19017},
+the Geochemical Mapping of Agricultural and Grazing Land
+Soil in Europe (GEMAS) \parencite{reimann2018gemas} and the Soil Profile Analytical
+Database for Europe (SPADE) \parencite{Hiederer2006}.
+These data with other not publicly available,
+were the basis of the \href{https://esdac.jrc.ec.europa.eu/content/soil-map-greece-0}{soil map} of Crete 
+and Greece. Soil maps of Crete require more sampling effort to be completed. 
+That is the reason of the coarse mapping of the Harmonized World Soil Database map of Crete, Figure \ref{fig:crete-data-cube-maps}.
+
+GBIF as an biodiversity aggregator contains the most open data occurrences of species. 
+Regarding Crete, it contains 116,643 occurrences of 7065 unique species,
+10189 unique taxa (Figure \ref{fig:crete-samplings}) \parencite{gbif.org-user2023occurrence}.
+The data have been provided by 196 different publishers, e.g Institutions, Museum Collections, Platforms etc.
+The majority of occurrences, 98,571, are originated from citizen science platforms, i.e 
+Cornell Lab of Ornithology, iNaturalist.org,Observation.org, Pl@ntNet and naturgucker.de.
+These occurrences were removed because they are not submitted by experts.
+There is a single occurrence of 1684, the oldest in Crete on the GBIF platform. Before 
+1960 there are 1021 unique taxa with 2051 occurrences submitted by 62 publishers (Figure \ref{fig:crete-samplings}).
+Another database is Edaphobase, which has in 26 resources with 17 different sampling points covering 120 distinct taxa.
+A part of it is included in GBIF, yet it provides some additional functionalities.
+
+IUCN redlist resource download contains three types of download.
+The polygon download contains the spatial polygons of distributions 
+of species. Regarding Crete, 526 species have this information.
+IUCN has point occurrences download for 90 species. 
+The data download contains multiple comma-separated files that 
+complement the assessment of each taxon. In total, there are 602 species
+in terrestrial habitats, Table \ref{table:crete_iucn_phyla}. 
+The majority of Critically Endangered species are Tracheophyta, the Phylum
+with most assessments in general. There are many species not assessed in IUCN still.
+
+IUCN also holds threats assessments for 266 species in Crete. 
+The most critical threat is the increase in fire frequency and intensity (72 species) 
+for all Phyla. Then small-holder grazing, ranching or farming (66 species) is responsible
+for the second for important threat of Cretan species. 
+The following three categories are about tourism and recreation areas (63 species),
+housing and urban areas (48 species) and recreational activities(37 species).
+
+
+Regarding the genomic and metagenomic samples from Crete, ENA hosts all the public 
+available data and metadata. There are 92 studies with 1205 samples.
+From these, the 530 samples are terrestrial metagenomic samples as shown in
+Figure \ref{fig:crete-samplings} C. 
+The most samples and studies are in the soil metagenome with 164 samples in 7 studies, excluding 144 samples of the
+ISD project \parencite{holm2025first}.
+Insect metagenome has 108 samples from 2 studies
+and plant metagenomes contains 69 samples in 2 studies.
+Then follows air metagenome with 61 samples during 3 studies.
+
+\begin{figure}[!htb] 
+    \centering\includegraphics[width=\columnwidth]{figures/map_crete_samples.png}
+    \caption[Samplings in Crete]{Samplings in Crete. A. GBIF occurrences in Crete.
+    B. Timeline of GBIF occurrences across kingdoms. C. All genomic samples from ENA. 
+    D. ENA metagenomic samples in Crete (without ISD). 
+    E. WoSIS soil samples in Crete.
+    F. Edaphobase samplings in Crete.
+    G. Sampling monitoring stations in Crete include multiple LTER and BON stations} 
+    \label{fig:crete-samplings}
+\end{figure}
+
+In addition to all these wealth of data, there are long term monitoring stations in 
+Crete, the most in Greece, Figure \ref{fig:crete-samplings} G.
+Artificial reefs monitoring (ARMS-MBON) with 2 stations \parencite{obst2020arms},
+European marine omics biodiversity observation network with one station \parencite{santi2023emobon},
+LTER-Greece network with 3 stations \parencite{Skoulikidis2021lter} and the POSEIDON system with 2 stations \parencite{ntoumas2022}. 
+These are marine (5) and terrestrial (3) station collecting biodiversity data and abiotic data.
+Focusing in a confined area provides unique opportunities for data integration.
+For example in Samothrace \parencite{noll2024insights} a 15 year long study 
+showed practices to help sustain the socioecological system.
+Crete would be a great example of the digital representation of it's ecosystems
+and the human activities in order to tighten the relations with the society and 
+protect vulnerable areas.
+
 
 \subsection{Soil microbiome}
 
@@ -1007,6 +1000,28 @@ C3 critical areas (high)                           & 232.20           \\
 \textbf{Crete total}                               & \textbf{8345}
 
 \end{longtable}
+
+
+
+\begin{table}[]
+\centering
+\caption{Number of taxa per Phylum and IUCN redlist category about the terrestrial species of Crete.
+    CR - Critically Endangered, EN - Endangered, VU - Vulnerable, NT - Near Threatened,
+    LC - Least Concern, DD - Data Deficient.}
+\label{table:crete_iucn_phyla}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lllllll}
+Category & Arthropoda & Bryophyta & Chordata & Mollusca & Tracheophyta & Total \\
+CR       & 2          & 0         & 1        & 3        & 8            & 14    \\
+EN       & 16         & 0         & 1        & 3        & 9            & 29    \\
+VU       & 15         & 1         & 4        & 27       & 11           & 58    \\
+NT       & 9          & 1         & 0        & 3        & 10           & 23    \\
+LC       & 60         & 2         & 20       & 97       & 247          & 426   \\
+DD       & 28         & 1         & 1        & 10       & 12           & 52    \\
+Total    & 130        & 5         & 27       & 143      & 297          & 602  
+\end{tabular}%
+}
+\end{table}
 
 \section{Data and Code}
 The documentation and scripts developed for this study are available in
