@@ -1,7 +1,9 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{graphicx}
 \usepackage{longtable}
-\usepackage{rotating}  % for sideways table
+\usepackage{booktabs}
+\usepackage{array}
+%\usepackage{rotating}  % for sideways table
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 %\usepackage{fancyhdr} % Load the fancyhdr package
@@ -631,52 +633,6 @@ beach environment.
 \end{figure}
 
 
-\begin{sidewaystable}
-    \caption{Summary of the different spatial layers in Crete in terms of total area, number of samples and microbial diversity.\label{table:data_cube_summary}}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lllllll@{\extracolsep{\fill}}}
-\tabcolsep=0pt%
-Class                                           & Category             & Samples & Taxa richness  & Mean Shannon index  \\
-Arable land                                     & CLC LABEL2           & 4       & 1518           & 4.73          \\
-Artificial, non-agricultural vegetated areas    & CLC LABEL2           & NA      & NA             & NA            \\
-Forests                                         & CLC LABEL2           & 4       & 1803           & 4.91          \\
-Heterogeneous agricultural areas                & CLC LABEL2           & 31      & 13701          & 4.83          \\
-Industrial, commercial and transport units      & CLC LABEL2           & 4       & 1760           & 4.79          \\
-Inland waters                                   & CLC LABEL2           & NA      & NA             & NA            \\
-Mine, dump and construction sites               & CLC LABEL2           & NA      & NA             & NA            \\
-Open spaces with little or no vegetation        & CLC LABEL2           & 7       & 3132           & 4.85          \\
-Pastures                                        & CLC LABEL2           & 4       & 1609           & 4.85          \\
-Permanent crops                                 & CLC LABEL2           & 22      & 9999           & 4.88          \\
-Scrub and/or herbaceous vegetation associations & CLC LABEL2           & 58      & 24394          & 4.76          \\
-Urban fabric                                    & CLC LABEL2           & 4       & 1765           & 4.78          \\
--                                               & Geology              & NA      & NA             & NA            \\
-J-E                                             & Geology              & 22      & 8995           & 4.75          \\
-K-E                                             & Geology              & NA      & NA             & NA            \\
-K.k                                             & Geology              & 27      & 11277          & 4.72          \\
-K.m                                             & Geology              & NA      & NA             & NA            \\
-Mk                                              & Geology              & 13      & 5618           & 4.79          \\
-Mm.I                                            & Geology              & 12      & 5259           & 4.86          \\
-Ph-T                                            & Geology              & 14      & 6720           & 4.92          \\
-Q.al                                            & Geology              & 34      & 15580          & 4.91          \\
-T.br                                            & Geology              & 2       & 625            & 4.4           \\
-f                                               & Geology              & 2       & 720            & 4.5           \\
-fo                                              & Geology              & 2       & 825            & 4.65          \\
-ft                                              & Geology              & 10      & 4062           & 4.79          \\
-o                                               & Geology              & NA      & NA             & NA            \\
-N                                               & Desertification Risk & NA      & NA             & NA            \\
-F2                                              & Desertification Risk & 53      & 23404          & 4.82          \\
-F1                                              & Desertification Risk & 22      & 8817           & 4.7           \\
-P                                               & Desertification Risk & 36      & 16256          & 4.86          \\
-C2                                              & Desertification Risk & 6       & 2113           & 4.59          \\
-Other areas                                     & Desertification Risk & NA      & NA             & NA            \\
-F3                                              & Desertification Risk & 14      & 5900           & 4.82          \\
-C1                                              & Desertification Risk & 7       & 3191           & 4.93          \\
-C3                                              & Desertification Risk & NA      & NA             & NA            \\
-Semi-Arid                                       & Aridity class        & 98      & 43064          & 4.83          \\
-Dry sub-humid                                   & Aridity class        & 32      & 13649          & 4.79          \\
-Humid                                           & Aridity class        & 8       & 2968           & 4.55          
-\end{tabular*}
-\end{sidewaystable}
-
 \subsubsection{Functions, associations and compositions}
 
 Differential abundance.
@@ -726,24 +682,23 @@ functions and expand the positive and negative associations in soils \parencite{
 
 \section{Conclusion}
 
-% data integration
-
 The amount of accumulated open data about Crete in literature, maps and samplings is huge
 and showcases the efforts of hundreds of scientists across the centuries.
-These data put Crete on the map as an island model.
+Here, we synthesized open data for 18 different resources, (Literature: 4, Samplings: 5 and Maps: 9) 
+which evidently put Crete on the map as an island model.
 The integration of open data,
-like the ones presented here, leads to new syntheses and hypotheses \parencite{ramirez2015toward,heberling_j_mason_data_2021,Enquist_2024}. 
-Building such systems is also a cultural treasure for society because
+like the ones presented here, leads to new syntheses and hypotheses \parencite{ramirez2015toward,heberling_j_mason_data_2021}. 
+Building such systems is also a cultural treasure to society because
 they will present the uniqueness of each place and it's relation with 
 people \parencite{bennett2022social}.
 This approach is necessary to decipher the complexity and emergent properties of soil \parencite{jorna2024the-underground,philippot2024the-interplay}
 encompassing interactions of fauna, flora and microbes \parencite{Fry2019, Crowther2019,GRANDY201640,Delgado-Baquerizo2020}.
-This work tackled the challenges of harnessing multiple data types and data structures across disciplines.
-Once these challenges were surpassed the soil microbiome health assessment became plausible.
+Yet, there are many technical and cultural challenges of harnessing multiple data types and data structures across disciplines \parencite{Enquist_2024}.
+Once these challenges were surpassed, the soil microbiome health assessment became plausible.
 For example, areas were identified as vulnerable areas and containing increased relative
 abundances of potential pathogen, like Richtis gorge.
 
-Regarding gaps, it was noticed that, even though plants have been studied in
+Regarding data gaps, it was noticed that, even though plants have been studied in
 Crete since 300 BC \parencite{Krimbas_2005},
 most of occurrence data being still presented in Atlases and books \parencite{dimopoulos2016,strid2024atlas,ralph1993flora}.
 Thus, the botanic community has not adopted widely the open data standards and FAIR data,
@@ -752,7 +707,7 @@ The endemics have more than 8500 occurrences \parencite{kougioumoutzis2020plant}
 These monumental works is crucial that are uploaded to GBIF or similar
 platforms to secure longevity, assist plant assessments and future analyses.
 IUCN also doesn't provide raw occurrences from the assessments for most species, 
-with chordata being totally absent from open redlist data points.
+with chordata being totally absent from open redlist occurrence points.
 In addition, soil microbiome works, e.g \textcite{bekris2019do-genetic}, that 
 provide novel information about microbes in protected areas are not 
 uploaded to ENA database.
@@ -784,125 +739,138 @@ are crucial to preserve the soil of Crete.
 
 \section{Appendix 1}\label{appendix1}
 
-\begin{longtable}{ll}
-    \caption{Area cover, in km\textsuperscript{2}, of the different categories per spatial data layer of Crete. \label{table:crete_data_cube_area}} \\
-\textbf{hilda+ transition 1978-2018}               & \textbf{area}    \\
+\begingroup
+\small
+\setlength{\tabcolsep}{2.5pt}% tighter numeric col spacing
+\renewcommand{\arraystretch}{1.1}% a bit taller rows
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.3\textwidth}r>{\raggedright\arraybackslash}p{0.14\textwidth}rrrrr@{}}
+\caption{Summary of data cube dimensions and measures}
+\label{table:crete_data_cube_area}\\
+\toprule
+\shortstack[l]{Class\\name} &
+\shortstack[c]{Area\\(km$^2$)} &
+\shortstack[l]{Map\\source} &
+\shortstack[c]{ISD\\Samples} &
+\shortstack[c]{Taxa\\richness} &
+\shortstack[c]{ASV\\richness} &
+\shortstack[c]{Mean\\diversity} &
+\shortstack[c]{SD\\diversity} \\
+\midrule
 \endfirsthead
-%
+\caption[]{Summary of data cube dimensions and measures} \\
+\toprule
+\shortstack[l]{Class\\name} &
+\shortstack[c]{Area\\(km$^2$)} &
+\shortstack[l]{Map\\source} &
+\shortstack[c]{ISD\\Samples} &
+\shortstack[c]{Taxa\\richness} &
+\shortstack[c]{ASV\\richness} &
+\shortstack[c]{Mean\\diversity} &
+\shortstack[c]{SD\\diversity} \\
+\midrule
 \endhead
-%
-urban (stable)                                     & 250.23           \\
-urban to cropland                                  & 5.06             \\
-urban to pasture/rangeland                         & 4.03             \\
-urban to unmanaged grass/shrubland                 & 1.01             \\
-cropland to urban                                  & 56.57            \\
-cropland (stable)                                  & 1,193.61         \\
-cropland to pasture/rangeland                      & 648.72           \\
-cropland to forest                                 & 163.42           \\
-cropland to unmanaged grass/shrubland              & 5.05             \\
-pasture/rangeland to urban                         & 64.47            \\
-pasture/rangeland to cropland                      & 145.34           \\
-pasture/rangeland (stable)                         & 4,694.29         \\
-pasture/rangeland to forest                        & 205.83           \\
-pasture/rangeland to unmanaged grass/shrubland     & 127.28           \\
-pasture/rangeland to sparse/no vegetation          & 1.01             \\
-forest to cropland                                 & 1.01             \\
-forest to pasture/rangeland                        & 23.22            \\
-forest (stable)                                    & 162.33           \\
-unmanaged grass/shrubland to urban                 & 10.08            \\
-unmanaged grass/shrubland to cropland              & 41.40            \\
-unmanaged grass/shrubland to pasture/rangeland     & 271.59           \\
-unmanaged grass/shrubland to forest                & 20.20            \\
-unmanaged grass/shrubland (stable)                 & 10.09            \\
-sparse/no vegetation to cropland                   & 9.11             \\
-sparse/no vegetation to pasture/rangeland          & 84.87            \\
-sparse/no vegetation to forest                     & 1.01             \\
-sparse/no vegetation (stable)                      & 6.05             \\
-water                                              & 164.57           \\
-\textbf{CLC 2}                                     &                  \\
-Arable land                                        & 88.29            \\
-Artificial, non-agricultural vegetated areas       & 20.68            \\
-Forests                                            & 299.93           \\
-Heterogeneous agricultural areas                   & 1102.96          \\
-Industrial, commercial and transport units         & 39.77            \\
-Inland waters                                      & 6.74             \\
-Mine, dump and construction sites                  & 10.05            \\
-Open spaces with little or no vegetation           & 410.66           \\
-Pastures                                           & 59.25            \\
-Permanent crops                                    & 2367.70          \\
-Scrub and/or herbaceous vegetation associations    & 3797.83          \\
-Urban fabric                                       & 110.63           \\
-                                                   &                  \\
-\textbf{Protected areas}                           & \textbf{area}    \\
-Aesthetic Forest                                   & 0.17             \\
-Sites of Community Importance (Habitats Directive) & 0.34             \\
-Game breeding station                              & 1.02             \\
-Controlled hunting area                            & 11.59            \\
-Core zone in National (Woodland) Park              & 47.56            \\
-UNESCO-MAB Biosphere Reserve                       & 88.65            \\
-Protected Forest                                   & 417.74           \\
-Wildlife Refuge                                    & 610.70           \\
-Special Protection Area (Birds Directive)          & 1261.78          \\
-Special Areas of Conservation (Habitats Directive) & 2371.42          \\
-total protected (no overlap)                       & 2900.59          \\
-total protected                                    & 4810.96          \\
-\textbf{Aridity index class}                       & \textbf{area}    \\
-Semi-Arid                                          & 6244.44          \\
-Dry sub-humid                                      & 1323.28          \\
-Humid                                              & 537.20           \\
-                                                   &                  \\
-\textbf{Soil (HWSD2)}                              & \textbf{area}    \\
-Calcaric Fluvisols                                 & 598.40           \\
-Calcaric Regosols                                  & 2250.80          \\
-Chromic Luvisols                                   & 767.04           \\
-Eutric Cambisols                                   & 97.92            \\
-Lithic Leptosols                                   & 4777.00          \\
-NA                                                 & 4.08             \\
-                                                   &                  \\
-\textbf{elevation}                                 & \textbf{area}    \\
-(0,200{]}                                          & 2227.85          \\
-(200,400{]}                                        & 2192.21          \\
-(400,600{]}                                        & 1584.84          \\
-(600,800{]}                                        & 815.99           \\
-(800,1000{]}                                       & 484.21           \\
-(1000,1200{]}                                      & 355.34           \\
-(1200,1400{]}                                      & 249.44           \\
-(1400,1600{]}                                      & 150.83           \\
-(1600,1800{]}                                      & 91.55            \\
-(1800,2000{]}                                      & 75.50            \\
-(2000,2200{]}                                      & 39.69            \\
-(2200,2400{]}                                      & 12.23            \\
-(2400,2600{]}                                      & 0.21             \\
-                                                   &                  \\
-\textbf{geology}                                   & \textbf{area}    \\
--                                                  & 0.57             \\
-J-E Plattenkalk                                    & 1346.89          \\
-K-E Limestone of Pindos                            & 247.97           \\
-K.k Limestone of Tripolis                          & 1252.97          \\
-K.m Carbonaceous Allochthonous                     & 12.95            \\
-Mk Neogenic                                        & 811.96           \\
-Mm.I Neogenic                                      & 1614.25          \\
-Ph-T Phylites - Chalazites                         & 1012.08          \\
-Q.al Quaternary alluvium                           & 910.75           \\
-T.br  Limestone of Tripolis                        & 299.58           \\
-f Schale                                           & 117.83           \\
-fo Schale of Pindos                                & 317.59           \\
-ft Flysch of Tripolis                              & 275.55           \\
-o Ophilite Complex Allochthonous                   & 93.94            \\
-                                                   &                  \\
-\textbf{Desertification risk}                      & \textbf{area}    \\
-N non-affected                                     & 159.10           \\
-F2 fragile (medium)                                & 1900.60          \\
-F1 fragile (low)                                   & 1483.50          \\
-P potential                                        & 1556.60          \\
-C2 critical areas (medium)                         & 623.50           \\
-Other areas                                        & 283.80           \\
-F3 fragile (high)                                  & 1118.00          \\
-C1 critical areas (low)                            & 769.70           \\
-C3 critical areas (high)                           & 232.20           \\
-\textbf{Crete total}                               & \textbf{8345}
+\midrule
+\multicolumn{8}{r}{{Continued on next page}} \\
+\midrule
+\endfoot
 
+\bottomrule
+\endlastfoot
+                                  Aesthetic Forest &    0.2 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+Sites of Community Importance (Habitats Directive) &    0.3 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+                             Game breeding station &      1 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+                           Controlled hunting area &   11.6 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+             Core zone in National (Woodland) Park &   47.6 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+                      UNESCO-MAB Biosphere Reserve &   88.7 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+                                  Protected Forest &  417.7 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+                                   Wildlife Refuge &  610.7 &             wdpa &      27 &         11333 &        52770 &         4.76 &       0.23 \\
+         Special Protection Area (Birds Directive) & 1261.8 &             wdpa &      40 &         16668 &        80798 &         4.73 &       0.24 \\
+Special Areas of Conservation (Habitats Directive) & 2371.4 &             wdpa &      62 &         26230 &       121403 &         4.77 &       0.24 \\
+                      total protected (no overlap) & 2900.6 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+                                   total protected &   4811 &             wdpa &       0 &             0 &            0 &            0 &          0 \\
+                                       Arable land &   88.3 &              CLC &       4 &          1518 &         6178 &         4.73 &       0.17 \\
+      Artificial, non-agricultural vegetated areas &   20.7 &              CLC &       0 &             0 &            0 &            0 &          0 \\
+                                           Forests &  299.9 &              CLC &       4 &          1803 &         8663 &         4.91 &       0.18 \\
+                  Heterogeneous agricultural areas &   1103 &              CLC &      31 &         13701 &        59581 &         4.83 &       0.24 \\
+        Industrial, commercial and transport units &   39.8 &              CLC &       4 &          1760 &         6517 &         4.79 &       0.32 \\
+                                     Inland waters &    6.7 &              CLC &       0 &             0 &            0 &            0 &          0 \\
+                 Mine, dump and construction sites &     10 &              CLC &       0 &             0 &            0 &            0 &          0 \\
+          Open spaces with little or no vegetation &  410.7 &              CLC &       7 &          3132 &        14568 &         4.85 &       0.21 \\
+                                          Pastures &   59.2 &              CLC &       4 &          1609 &         7535 &         4.85 &       0.14 \\
+                                   Permanent crops & 2367.7 &              CLC &      22 &          9999 &        43833 &         4.88 &       0.18 \\
+   Scrub and/or herbaceous vegetation associations & 3797.8 &              CLC &      58 &         24394 &       110127 &         4.76 &       0.29 \\
+                                      Urban fabric &  110.6 &              CLC &       4 &          1765 &         9828 &         4.78 &       0.19 \\
+                                                 - &    0.6 &          Geology &       0 &             0 &            0 &            0 &          0 \\
+                                               J-E & 1346.9 &          Geology &      22 &          8995 &        41730 &         4.75 &       0.25 \\
+                                               K-E &    248 &          Geology &       0 &             0 &            0 &            0 &          0 \\
+                                               K.k &   1253 &          Geology &      27 &         11277 &        51737 &         4.72 &       0.25 \\
+                                               K.m &   12.9 &          Geology &       0 &             0 &            0 &            0 &          0 \\
+                                                Mk &    812 &          Geology &      13 &          5618 &        24633 &         4.79 &        0.2 \\
+                                              Mm.I & 1614.3 &          Geology &      12 &          5259 &        22854 &         4.86 &       0.15 \\
+                                              Ph-T & 1012.1 &          Geology &      14 &          6720 &        29742 &         4.92 &       0.19 \\
+                                              Q.al &  910.7 &          Geology &      34 &         15580 &        64851 &         4.91 &       0.27 \\
+                                              T.br &  299.6 &          Geology &       2 &           625 &         2839 &          4.4 &       0.24 \\
+                                                 f &  117.8 &          Geology &       2 &           720 &         4753 &          4.5 &       0.01 \\
+                                                fo &  317.6 &          Geology &       2 &           825 &         4606 &         4.65 &       0.04 \\
+                                                ft &  275.5 &          Geology &      10 &          4062 &        19085 &         4.79 &       0.17 \\
+                                                 o &   93.9 &          Geology &       0 &             0 &            0 &            0 &          0 \\
+                                    urban (stable) &    242 & Hilda+ 1976-2016 &       4 &          1872 &         7656 &         4.96 &       0.15 \\
+                                 urban to cropland &      5 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                        urban to pasture/rangeland &      2 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                urban to unmanaged grass/shrubland &      1 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                                 cropland to urban &     57 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                                 cropland (stable) &   1150 & Hilda+ 1976-2016 &      14 &          6005 &        27298 &          4.8 &       0.15 \\
+                     cropland to pasture/rangeland &    674 & Hilda+ 1976-2016 &      10 &          4392 &        20181 &         4.88 &       0.14 \\
+                                cropland to forest &    149 & Hilda+ 1976-2016 &       4 &          2191 &         8674 &         5.09 &       0.15 \\
+             cropland to unmanaged grass/shrubland &      8 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                        pasture/rangeland to urban &     73 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                     pasture/rangeland to cropland &    180 & Hilda+ 1976-2016 &       4 &          1283 &         4520 &         4.54 &       0.27 \\
+                        pasture/rangeland (stable) &   4645 & Hilda+ 1976-2016 &      75 &         31917 &       150214 &         4.78 &       0.24 \\
+                       pasture/rangeland to forest &    182 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+    pasture/rangeland to unmanaged grass/shrubland &    108 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+         pasture/rangeland to sparse/no vegetation &      1 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                       forest to pasture/rangeland &     31 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                                   forest (stable) &    136 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+               forest to unmanaged grass/shrubland &      1 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                unmanaged grass/shrubland to urban &     13 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+             unmanaged grass/shrubland to cropland &     53 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+    unmanaged grass/shrubland to pasture/rangeland &    341 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+               unmanaged grass/shrubland to forest &     33 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                unmanaged grass/shrubland (stable) &      9 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                  sparse/no vegetation to cropland &     10 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+         sparse/no vegetation to pasture/rangeland &     97 & Hilda+ 1976-2016 &       6 &          2406 &        10870 &         4.68 &       0.27 \\
+                     sparse/no vegetation (stable) &      6 & Hilda+ 1976-2016 &       0 &             0 &            0 &            0 &          0 \\
+                                             water &    165 & Hilda+ 1976-2016 &      21 &          9615 &        37417 &         4.88 &       0.32 \\
+                                         Semi-Arid &   6438 &          Aridity &      98 &         43064 &       184930 &         4.83 &       0.25 \\
+                                     Dry sub-humid &   1368 &          Aridity &      32 &         13649 &        65134 &         4.79 &       0.21 \\
+                                             Humid &    554 &          Aridity &       8 &          2968 &        16766 &         4.55 &       0.19 \\
+                                                 N &    190 &  Desertification &       0 &             0 &            0 &            0 &          0 \\
+                                                F2 &   2367 &  Desertification &      53 &         23404 &       103956 &         4.82 &       0.26 \\
+                                                F1 &   1858 &  Desertification &      22 &          8817 &        41020 &          4.7 &       0.23 \\
+                                                 P &   1789 &  Desertification &      36 &         16256 &        73256 &         4.86 &       0.19 \\
+                                                C2 &    742 &  Desertification &       6 &          2113 &         9105 &         4.59 &       0.22 \\
+                                       Other areas &    453 &  Desertification &       0 &             0 &            0 &            0 &          0 \\
+                                                F3 &   1413 &  Desertification &      14 &          5900 &        25362 &         4.82 &       0.28 \\
+                                                C1 &   1011 &  Desertification &       7 &          3191 &        14131 &         4.93 &       0.25 \\
+                                                C3 &    239 &  Desertification &       0 &             0 &            0 &            0 &          0 \\
+                                           0 - 0.5 &   2935 &  Soil Erosion G2 &      53 &         23605 &       105741 &         4.85 &       0.21 \\
+                                           0.5 - 1 &    453 &  Soil Erosion G2 &       6 &          3180 &        11452 &          5.1 &       0.18 \\
+                                             1 - 2 &    604 &  Soil Erosion G2 &       8 &          3315 &        13574 &          4.7 &       0.36 \\
+                                           10 - 20 &    441 &  Soil Erosion G2 &       9 &          3957 &        17821 &         4.83 &       0.15 \\
+                                             2 - 5 &    821 &  Soil Erosion G2 &      20 &          8333 &        38966 &         4.73 &       0.26 \\
+                                            5 - 10 &    531 &  Soil Erosion G2 &      16 &          7518 &        33010 &          4.9 &       0.23 \\
+                                               >20 &    634 &  Soil Erosion G2 &      18 &          6805 &        29500 &         4.72 &       0.22 \\
+                                Calcaric Fluvisols &    618 &            HWSD2 &      11 &          5191 &        22016 &         4.95 &       0.18 \\
+                                 Calcaric Regosols &   2321 &            HWSD2 &      47 &         20066 &        85394 &         4.79 &       0.25 \\
+                                  Chromic Luvisols &    793 &            HWSD2 &      17 &          7099 &        35310 &         4.74 &       0.23 \\
+                                  Eutric Cambisols &    101 &            HWSD2 &       0 &             0 &            0 &            0 &          0 \\
+                                  Lithic Leptosols &   4926 &            HWSD2 &      63 &         27325 &       124110 &         4.81 &       0.25 \\
+                                        Technosols &     39 &            HWSD2 &       0 &             0 &            0 &            0 &          0 \\
+                                             Crete & 8346.5 &             GDAM &       0 &             0 &            0 &            0 &          0 \\
 \end{longtable}
+\endgroup
+
+
 
 \begin{table}[h!]
 \centering
